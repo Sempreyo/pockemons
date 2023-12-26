@@ -1,0 +1,77 @@
+{
+  "section": [
+    {
+      "title": "Начало",
+      "href": "start"
+    },
+    {
+      "title": "Библиотека компонентов",
+      "href": "library",
+      "list": [
+        {
+          "title": "button",
+          "description": "Кнопка. Универсальный класс который может использоваться для <code>button</code>, <code>input(type=”button”)</code> и ссылок"
+        },
+        {
+          "title": "input",
+          "description": "Поле ввода. Текст, почта, телефон, поиск, пароль, число. У поля отслеживается состояние"
+        },
+        {
+          "title": "textarea",
+          "description": "Текстовое поле. У поля отслеживается состояние, а также подключено автоизменение высоты"
+        },
+        {
+          "title": "select",
+          "description": "Поле выбора. Выпадающее меню системное"
+        },
+        {
+          "title": "checkbox",
+          "description": "Чекбокс"
+        },
+        {
+          "title": "radio",
+          "description": "Радио-кнопка"
+        },
+        {
+          "title": "field",
+          "description": "Поле формы. Лейбл, информация об ошибке. Поле формы может содержать поле ввода, текстовое поле, поле выбора"
+        },
+        {
+          "title": "field-dp",
+          "description": "Поле формы. Лейбл, информация об ошибке. С анимированным лейблом-плейсхолдером"
+        },
+        {
+          "title": "form",
+          "description": "Форма"
+        },
+        {
+          "title": "tabs",
+          "description": "Табы"
+        }
+      ]
+    },
+    {
+      "title": "Инструменты",
+      "href": "tools",
+      "list": [
+        {
+          "title": "fluid-функция",
+          "description": "функция для гибкого изменения размера в зависимости от ширины экрана"
+        },
+        {
+          "title": "json-data",
+          "description": "Данные из json"
+        },
+        {
+          "title": "svg-sprite",
+          "description": "Спрайт иконок"
+        },
+        {
+          "title": "dynamic-sources-path",
+          "description": "Динамическое изменение путей к материалам в стилях и разметке. Используйте <code>/{{ ... }}/</code> для автоматической замены части пути (пример: <code>../{{img}}/filename.jpg</code> будет заменен на <code>../img/filename.jpg</code>), если в переменной img лежит <code>/img/</code>. Для разметки можно обратиться к объекту <code>src</code> (пример: <code>href= src.icon + 'icon__default'</code> будет заменен на <code>href='/img/svgSprite.svg#icon__default'</code>)"
+        }
+      ]
+    }
+  ],
+  "data": "String from json"
+}

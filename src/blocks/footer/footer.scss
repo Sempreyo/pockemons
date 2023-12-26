@@ -1,0 +1,6 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/text-styles";
+
+.footer {
+  $block-name: &; // #{$block-name}__element
+}
