@@ -421,7 +421,6 @@ function clearBuildDir() {
     `${dir.build}/**/*`,
     `!${dir.build}/readme.md`,
     `!${dir.build}/pb_data`,
-    `!${dir.build}/pb_public`,
     `!${dir.build}/pb_migrations`,
     `!${dir.build}/pocketbase.exe`,
   ]);

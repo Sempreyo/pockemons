@@ -3,6 +3,8 @@ src/json/
 temp/
 build/*
 !build/readme.md
+!build/pb_data/
+!build/pocketbase.exe
 
 src/templates/mixins.pug
 src/js/entry.js
