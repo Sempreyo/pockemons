@@ -1,0 +1,64 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/fluid";
+
+.type {
+  $block-name: &; // #{$block-name}__element
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 6px 6px 16px;
+  border-top: 1px solid transparent;
+  background-color: var(--button-primary);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.15;
+  letter-spacing: 0.42px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s ease;
+
+  &:hover {
+    border-color: var(--button-border-tertiary);
+    background-color: var(--button-tertiary);
+
+    #{$block-name}__num {
+      border-color: var(--button-border-tertiary);
+      color: var(--front-primary);
+    }
+  }
+
+  &--active {
+    border-color: var(--button-border-secondary);
+    background-color: var(--button-secondary);
+    pointer-events: none;
+
+    #{$block-name}__num {
+      border-color: var(--button-border-secondary);
+      color: var(--front-primary);
+    }
+  }
+
+  &__group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__num {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--button-border-primary);
+    color: var(--button-tertiary);
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+    transition: 0.3s ease;
+  }
+}

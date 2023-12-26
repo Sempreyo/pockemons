@@ -3,8 +3,21 @@
 :root {
   --color-black: #000;
   --color-white: #fff;
+  --body-color: var(--front-primary);
+  --body-bg: var(--back-primary);
+  --font-base: var(--font-mochiy);
+  --font-mochiy: "MochiyPopOne", sans-serif;
+  --font-helvetica: "HelveticaNeueCyr", sans-serif;
   --font-size-root: 100%;
   --font-size-base: 1rem;
   --font-weight-base: 400;
   --line-height-base: 1.25;
+  --front-primary: #e8e9e9;
+  --back-primary: #131619;
+  --button-primary: #131619;
+  --button-secondary: #363a3d;
+  --button-tertiary: #686b6e;
+  --button-border-primary: #363a3d;
+  --button-border-secondary: #686b6e;
+  --button-border-tertiary: #9b9c9e;
 }

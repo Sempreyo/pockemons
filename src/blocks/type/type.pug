@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (type)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+mixin type(icon, title, mods)
+
+  //- Принимает:
+  //-   icon    {string} - иконка
+  //-   title    {string} - заголовок
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +type('some-mod')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' type--' + modsList[i].trim();
+      }
+    }
+  .type(class= allMods)&attributes(attributes)
+    .type__group
+      svg.type__icon
+          use(href= src.icon + icon)
+      .type__title!= title
+    .type__num 999
