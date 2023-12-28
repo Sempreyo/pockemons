@@ -1,0 +1,23 @@
+//- Все примеси в этом файле должны начинаться c имени блока (characteristic)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+mixin characteristic(icon, num, mods)
+
+  //- Принимает:
+  //-   icon    {string} - иконка
+  //-   num     {string} - значение характеристики
+  //- Вызов:
+        +characteristic('health, '45', 'some-mod')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' characteristic--' + modsList[i].trim();
+      }
+    }
+  .characteristic(class= allMods)&attributes(attributes)
+    .characteristic__icon-wrapper
+      svg.characteristic__icon
+        use(href= src.icon + icon)
+    .characteristic__num!= num

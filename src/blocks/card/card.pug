@@ -1,0 +1,34 @@
+//- Все примеси в этом файле должны начинаться c имени блока (card)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+mixin card(id, img, title, iconsArr, mods)
+
+  //- Принимает:
+  //-   id      {string} - номер карточки
+  //-   img      {string} - картинка
+  //-   title    {string} - заголовок
+  //-   iconsArr {array} - массив иконок типов
+  //-   mods     {string} - список модификаторов
+  //- Вызов:
+        +card('001', '1.png', 'Bulbasaur', ['poison', 'grass'], 'some-mod')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' card--' + modsList[i].trim();
+      }
+    }
+  .card(class= allMods)&attributes(attributes)
+    .card__image-wrapper
+      .card__id!= id
+      img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt='')
+    .card__group
+      .card__title!= title
+      .card__icons
+        each icon in iconsArr
+          svg.card__icon
+            use(href= src.icon + icon)
+    .card__characteristics
+      if (block)
+        block

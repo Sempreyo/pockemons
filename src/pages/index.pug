@@ -7,4 +7,75 @@ block variables
   - metaKeywords = 'keywords'
 
 block content
-  .container
+  .page
+    +filter-btn()(class='page__filter-btn')
+    .container
+      .page__tabs-wrapper
+        .page__tabs
+          +tab("Pockemons", "active")
+          +tab("Fight")
+      .page__tabs-content
+        .page__grid
+          .page__sidebar
+            .per-page
+              .per-page__title Per page:
+              .per-page__btns
+                .link-btn.link-btn--active 12
+                .link-btn 24
+                .link-btn 48
+            .page__filter.filter
+              +type("all", "All", "active")
+              +type("bug", "Bug")
+              +type("dark", "Dark")
+              +type("dragon", "Dragon")
+              +type("electric", "Electric")
+              +type("fairy", "Fairy")
+              +type("fighting", "Fighting")
+              +type("fire", "Fire")
+              +type("flying", "Flying")
+              +type("ghost", "Ghost")
+              +type("grass", "Grass")
+              +type("ground", "Ground")
+              +type("ice", "Ice")
+              +type("normal", "Normal")
+              +type("poison", "Poison")
+              +type("psychic", "Psychic")
+              +type("rock", "Rock")
+              +type("steel", "Steel")
+              +type("water", "Water")
+          .page__main
+            .page__cards
+              +card('001', '1.png', 'Bulbasaur', ['poison', 'grass'])(class='page__card')
+                +characteristic('health', '45')
+                +characteristic('speed', '45')
+                +characteristic('attack', '49/65')
+                +characteristic('defence', '49/65')
+              +card('002', '2.png', 'Ivysaur', ['poison', 'grass'])(class='page__card')
+                +characteristic('health', '60')
+                +characteristic('speed', '60')
+                +characteristic('attack', '62/80')
+                +characteristic('defence', '63/80')
+              +card('003', '3.png', 'Venusaur', ['poison', 'grass'])(class='page__card')
+                +characteristic('health', '80')
+                +characteristic('speed', '80')
+                +characteristic('attack', '82/100')
+                +characteristic('defence', '83/100')
+              +card('004', '4.png', 'Charmander', ['fire'])(class='page__card')
+                +characteristic('health', '39')
+                +characteristic('speed', '65')
+                +characteristic('attack', '52/60')
+                +characteristic('defence', '43/50')
+              +card('005', '5.png', 'Charmeleon', ['fire'])(class='page__card')
+                +characteristic('health', '58')
+                +characteristic('speed', '80')
+                +characteristic('attack', '64/80')
+                +characteristic('defence', '58/65')
+              +card('006', '6.png', 'Charizard', ['fire'])(class='page__card')
+                +characteristic('health', '78')
+                +characteristic('speed', '100')
+                +characteristic('attack', '64/109')
+                +characteristic('defence', '78/85')
+
+            .page__pagination-wrapper
+              .page__pagination-inner
+                +pagination()(class='page__pagination')

@@ -40,10 +40,8 @@ html(class='no-js', lang='ru')
   body
     noscript У вас отключен JavaScript. Это пугает.
 
-    .page
-      .page__main
-        block content
-          .content-filler content-filler
+    .overlay(hidden)
+    block content
 
     block templates
 
