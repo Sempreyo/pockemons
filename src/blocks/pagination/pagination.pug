@@ -1,0 +1,27 @@
+//- Все примеси в этом файле должны начинаться c имени блока (pagination)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+mixin pagination(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +pagination('some-mod')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' pagination--' + modsList[i].trim();
+      }
+    }
+
+  .pagination(class= allMods)&attributes(attributes)
+    a.link-btn.link-btn--prev first
+    a.link-btn.link-btn--active 1
+    a.link-btn 2
+    a.link-btn 3
+    a.link-btn 4
+    a.link-btn 5
+    span.link-btn.link-btn--dots ...
+    a.link-btn.link-btn--next last

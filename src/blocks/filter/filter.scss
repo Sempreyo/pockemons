@@ -1,0 +1,14 @@
+@import "../../scss/breakpoints";
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+  background-color: var(--back-secondary);
+  border-radius: 16px;
+
+  @media (min-width: $screen-ti) {
+    border-radius: 24px;
+  }
+}

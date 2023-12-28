@@ -1,0 +1,56 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/fluid";
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 8px 4px;
+  font-size: 12px;
+  line-height: 1.33;
+  background-color: var(--pagination-primary);
+  border: 1px solid transparent;
+  border-top-color: var(--button-border-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  user-select: none;
+
+  @media (min-width: $screen-ti) {
+    min-width: 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.42px;
+  }
+
+  &:hover {
+    border: 1px solid var(--color-accent);
+  }
+
+  &--active {
+    background-color: var(--button-secondary);
+    border-top-color: var(--button-border-secondary);
+    pointer-events: none;
+  }
+
+  &--dots {
+    background-color: transparent;
+    border-color: transparent;
+    pointer-events: none;
+  }
+
+  &--prev,
+  &--next {
+    order: 1;
+    width: calc(50% - 8px / 2);
+    padding: 7px 16px;
+
+    @media (min-width: $screen-ti) {
+      order: unset;
+      width: auto;
+    }
+  }
+}

@@ -4,28 +4,34 @@
 .tab {
   $block-name: &; // #{$block-name}__element
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-  border-top: 1px solid var(--button-border-primary);
-  background-color: var(--button-primary);
-  border-radius: 16px;
+  width: 100%;
+  padding: 7.5px 16px;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.32px;
+  background-color: var(--button-primary);
+  border-top: 1px solid var(--button-border-primary);
+  border-radius: 8px;
   cursor: pointer;
-  user-select: none;
   transition: 0.3s ease;
+  user-select: none;
+
+  @media (min-width: $screen-ti) {
+    padding: 16px;
+    border-radius: 16px;
+  }
 
   &:hover {
-    border-top: 1px solid var(--button-border-tertiary);
     background-color: var(--button-tertiary);
+    border-top: 1px solid var(--button-border-tertiary);
   }
 
   &--active {
-    border-top: 1px solid var(--button-border-secondary);
     background-color: var(--button-secondary);
+    border-top: 1px solid var(--button-border-secondary);
     pointer-events: none;
   }
 }
