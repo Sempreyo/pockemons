@@ -1,5 +1,4 @@
 @import "../../scss/breakpoints";
-@import "../../scss/mixins/fluid";
 
 .pagination {
   $block-name: &; // #{$block-name}__element
@@ -12,4 +11,8 @@
   padding: 8px;
   background-color: var(--back-secondary);
   border-radius: 16px;
+
+  @media (min-width: $screen-ti) {
+    flex-wrap: nowrap;
+  }
 }

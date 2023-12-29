@@ -1,4 +1,5 @@
 @import "../../scss/breakpoints";
+@import "../../scss/mixins/text-styles";
 
 .characteristic {
   $block-name: &; // #{$block-name}__element
@@ -6,9 +7,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: calc(50% - 8px / 2);
   border: 1px solid var(--button-border-primary);
   border-radius: 8px;
+  transition: 0.3s ease;
 
   @media (min-width: $screen-ti) {
     flex-direction: row;
@@ -21,6 +23,7 @@
     width: 100%;
     padding: 8px 12px;
     border-bottom: 1px solid var(--button-border-primary);
+    transition: 0.3s ease;
 
     @media (min-width: $screen-ti) {
       width: 48px;
@@ -40,16 +43,16 @@
   }
 
   &__num {
+    @include fluid-num();
+
     width: 100%;
     padding: 8px;
-    font-size: 8px;
     line-height: 1;
     letter-spacing: 0.4px;
     text-align: center;
 
     @media (min-width: $screen-ti) {
       padding: 0 8px;
-      font-size: 16px;
       letter-spacing: 0.4px;
     }
   }
