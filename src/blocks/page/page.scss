@@ -24,6 +24,8 @@
       position: relative;
       top: 0;
       width: 100%;
+      margin-left: 0;
+      padding: 0;
       border-radius: unset;
       backdrop-filter: unset;
     }
@@ -45,7 +47,12 @@
     margin-top: 0;
 
     @media (min-width: $screen-ti) {
+      grid-template-columns: repeat(12, 1fr);
       margin-top: 32px;
+    }
+
+    @media (min-width: $screen-d) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -64,12 +71,18 @@
     @media (min-width: $screen-ti) {
       position: relative;
       z-index: unset;
+      grid-column: 1 / span 4;
       max-width: 100%;
       padding: 0;
       overflow-y: unset;
       background-color: transparent;
       transform: unset;
       inset: unset;
+    }
+
+    @media (min-width: $screen-d) {
+      grid-column: 1 / span 1;
+      padding: 0 12px 0 0;
     }
 
     &--active {
@@ -81,6 +94,10 @@
     grid-column: 1 / span 4;
 
     @media (min-width: $screen-ti) {
+      grid-column: 5 / span 8;
+    }
+
+    @media (min-width: $screen-d) {
       grid-column: 2 / span 3;
     }
   }
@@ -120,6 +137,10 @@
     justify-content: center;
 
     @media (min-width: $screen-ti) {
+      grid-column: 1 / span 8;
+    }
+
+    @media (min-width: $screen-d) {
       grid-column: 2 / span 4;
     }
   }
