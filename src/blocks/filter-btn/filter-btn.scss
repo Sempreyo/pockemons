@@ -14,3 +14,17 @@
     height: 100%;
   }
 }
+
+body[data-state="mobile-menu"] {
+  overflow: hidden;
+
+  .page {
+    &__sidebar {
+      transform: translateX(0);
+    }
+
+    &__overlay {
+      display: block;
+    }
+  }
+}

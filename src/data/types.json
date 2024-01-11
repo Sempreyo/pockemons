@@ -1,0 +1,81 @@
+{
+  "typesArray": [
+    {
+      "icon": "icon__all",
+      "title": "All",
+      "active": true
+    },
+    {
+      "icon": "icon__bug",
+      "title": "Bug"
+    },
+    {
+      "icon": "icon__dark",
+      "title": "Dark"
+    },
+    {
+      "icon": "icon__dragon",
+      "title": "Dragon"
+    },
+    {
+      "icon": "icon__electric",
+      "title": "Electric"
+    },
+    {
+      "icon": "icon__fairy",
+      "title": "Fairy"
+    },
+    {
+      "icon": "icon__fighting",
+      "title": "Fighting"
+    },
+    {
+      "icon": "icon__fire",
+      "title": "Fire"
+    },
+    {
+      "icon": "icon__flying",
+      "title": "Flying"
+    },
+    {
+      "icon": "icon__ghost",
+      "title": "Ghost"
+    },
+    {
+      "icon": "icon__grass",
+      "title": "Grass"
+    },
+    {
+      "icon": "icon__ground",
+      "title": "Ground"
+    },
+    {
+      "icon": "icon__ice",
+      "title": "Ice"
+    },
+    {
+      "icon": "icon__normal",
+      "title": "Normal"
+    },
+    {
+      "icon": "icon__poison",
+      "title": "Poison"
+    },
+    {
+      "icon": "icon__psychic",
+      "title": "Psychic"
+    },
+    {
+      "icon": "icon__rock",
+      "title": "Rock"
+    },
+    {
+      "icon": "icon__steel",
+      "title": "Steel"
+    },
+    {
+      "icon": "icon__water",
+      "title": "Water"
+    }
+  ]
+}

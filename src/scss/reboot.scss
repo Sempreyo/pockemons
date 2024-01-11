@@ -31,6 +31,24 @@ svg {
   display: block;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 400;
+}
+
+button {
+  font: inherit;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0;
 }
