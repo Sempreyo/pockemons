@@ -1,0 +1,81 @@
+{
+  "typesArray": [
+    {
+      "icon": "all",
+      "title": "All",
+      "active": true
+    },
+    {
+      "icon": "bug",
+      "title": "Bug"
+    },
+    {
+      "icon": "dark",
+      "title": "Dark"
+    },
+    {
+      "icon": "dragon",
+      "title": "Dragon"
+    },
+    {
+      "icon": "electric",
+      "title": "Electric"
+    },
+    {
+      "icon": "fairy",
+      "title": "Fairy"
+    },
+    {
+      "icon": "fighting",
+      "title": "Fighting"
+    },
+    {
+      "icon": "fire",
+      "title": "Fire"
+    },
+    {
+      "icon": "flying",
+      "title": "Flying"
+    },
+    {
+      "icon": "ghost",
+      "title": "Ghost"
+    },
+    {
+      "icon": "grass",
+      "title": "Grass"
+    },
+    {
+      "icon": "ground",
+      "title": "Ground"
+    },
+    {
+      "icon": "ice",
+      "title": "Ice"
+    },
+    {
+      "icon": "normal",
+      "title": "Normal"
+    },
+    {
+      "icon": "poison",
+      "title": "Poison"
+    },
+    {
+      "icon": "psychic",
+      "title": "Psychic"
+    },
+    {
+      "icon": "rock",
+      "title": "Rock"
+    },
+    {
+      "icon": "steel",
+      "title": "Steel"
+    },
+    {
+      "icon": "water",
+      "title": "Water"
+    }
+  ]
+}
