@@ -1,7 +1,7 @@
 @import "fluid";
 
 @mixin fluid-title {
-  font-size: fluid(16, 20, 320, 768);
+  font-size: fluid(16, 20, 360, 768);
 
   @media screen and (min-width: $screen-ti) {
     font-size: fluid(20, 32, 768, 1280);
@@ -13,7 +13,7 @@
 }
 
 @mixin fluid-num {
-  font-size: fluid(8, 9, 320, 768);
+  font-size: fluid(8, 9, 360, 768);
 
   @media screen and (min-width: $screen-ti) {
     font-size: fluid(9, 12, 768, 1280);
@@ -29,7 +29,7 @@
 }
 
 @mixin fluid-card-id {
-  font-size: fluid(8, 10, 320, 768);
+  font-size: fluid(8, 10, 360, 768);
 
   @media screen and (min-width: $screen-ti) {
     font-size: fluid(10, 12, 768, 1280);
@@ -41,7 +41,7 @@
 }
 
 @mixin fluid-link-btn {
-  font-size: fluid(12, 14, 320, 768);
+  font-size: fluid(12, 14, 360, 768);
 
   @media screen and (min-width: $screen-ti) {
     font-size: fluid(14, 16, 768, 1280);

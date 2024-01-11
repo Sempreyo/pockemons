@@ -1,6 +1,9 @@
 @import "../../scss/breakpoints";
+@import "../../scss/mixins/list-reset";
 
 .filter {
+  @include list-reset;
+
   display: flex;
   flex-direction: column;
   gap: 2px;

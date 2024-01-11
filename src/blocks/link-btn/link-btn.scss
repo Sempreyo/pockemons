@@ -39,7 +39,11 @@
   &--dots {
     background-color: transparent;
     border-color: transparent;
-    pointer-events: none;
+
+    &:hover {
+      border-color: transparent;
+      cursor: default;
+    }
   }
 
   &--prev,

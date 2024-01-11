@@ -7,13 +7,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(50% - 8px / 2);
+  width: calc(50% - 4px / 2);
   border: 1px solid var(--button-border-primary);
   border-radius: 8px;
   transition: 0.3s ease;
 
   @media (min-width: $screen-ti) {
     flex-direction: row;
+    width: calc(50% - 8px / 2);
   }
 
   &__icon-wrapper {
@@ -21,12 +22,13 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-bottom: 1px solid var(--button-border-primary);
     transition: 0.3s ease;
 
     @media (min-width: $screen-ti) {
       width: 48px;
+      padding: 7px 12px;
       border-right: 1px solid var(--button-border-primary);
       border-bottom: 0;
     }
@@ -52,8 +54,12 @@
     text-align: center;
 
     @media (min-width: $screen-ti) {
-      padding: 0 8px;
+      padding: 0 1px;
       letter-spacing: 0.4px;
+    }
+
+    @media (min-width: $screen-tl) {
+      padding: 0 8px;
     }
   }
 }

@@ -1,8 +1,6 @@
-function openNav() {
-  let bodyState = document.body.getAttribute("data-state");
-  bodyState === "mobile-menu"
-    ? (document.body.dataset.state = "")
-    : (document.body.dataset.state = "mobile-menu");
+function toggleState(elem, state) {
+  let bodyState = elem.getAttribute("data-state");
+  bodyState === state ? (document.body.dataset.state = "") : (document.body.dataset.state = state);
 }
 
-export default openNav;
+export default toggleState;

@@ -1,81 +1,91 @@
 {
-  "typesArray": [
+  "cardsArray": [
     {
-      "icon": "all",
-      "title": "All",
-      "active": true
+      "id": "001",
+      "img": "1.png",
+      "title": "Bulbasaur",
+      "icons": [
+        "icon__poison",
+        "icon__grass"
+      ],
+      "characteristics": [
+        "45",
+        "45",
+        "49 / 65",
+        "49 / 65"
+      ]
     },
     {
-      "icon": "bug",
-      "title": "Bug"
+      "id": "002",
+      "img": "2.png",
+      "title": "Ivysaur",
+      "icons": [
+        "icon__poison",
+        "icon__grass"
+      ],
+      "characteristics": [
+        "60",
+        "60",
+        "62 / 80",
+        "62 / 80"
+      ]
     },
     {
-      "icon": "dark",
-      "title": "Dark"
+      "id": "003",
+      "img": "3.png",
+      "title": "Venusaur",
+      "icons": [
+        "icon__poison",
+        "icon__grass"
+      ],
+      "characteristics": [
+        "80",
+        "80",
+        "82 / 100",
+        "83 / 100"
+      ]
     },
     {
-      "icon": "dragon",
-      "title": "Dragon"
+      "id": "004",
+      "img": "4.png",
+      "title": "Charmander",
+      "icons": [
+        "icon__fire"
+      ],
+      "characteristics": [
+        "39",
+        "65",
+        "52 / 60",
+        "43 / 50"
+      ]
     },
     {
-      "icon": "electric",
-      "title": "Electric"
+      "id": "005",
+      "img": "5.png",
+      "title": "Charmeleon",
+      "icons": [
+        "icon__fire"
+      ],
+      "characteristics": [
+        "58",
+        "80",
+        "64 / 80",
+        "58 / 65"
+      ]
     },
     {
-      "icon": "fairy",
-      "title": "Fairy"
-    },
-    {
-      "icon": "fighting",
-      "title": "Fighting"
-    },
-    {
-      "icon": "fire",
-      "title": "Fire"
-    },
-    {
-      "icon": "flying",
-      "title": "Flying"
-    },
-    {
-      "icon": "ghost",
-      "title": "Ghost"
-    },
-    {
-      "icon": "grass",
-      "title": "Grass"
-    },
-    {
-      "icon": "ground",
-      "title": "Ground"
-    },
-    {
-      "icon": "ice",
-      "title": "Ice"
-    },
-    {
-      "icon": "normal",
-      "title": "Normal"
-    },
-    {
-      "icon": "poison",
-      "title": "Poison"
-    },
-    {
-      "icon": "psychic",
-      "title": "Psychic"
-    },
-    {
-      "icon": "rock",
-      "title": "Rock"
-    },
-    {
-      "icon": "steel",
-      "title": "Steel"
-    },
-    {
-      "icon": "water",
-      "title": "Water"
+      "id": "006",
+      "img": "6.png",
+      "title": "Charizard",
+      "icons": [
+        "icon__fire"
+      ],
+      "characteristics": [
+        "78",
+        "100",
+        "64 / 109",
+        "78 / 85"
+      ]
     }
   ]
 }

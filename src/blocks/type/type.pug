@@ -17,7 +17,7 @@ mixin type(icon, title, mods)
         allMods = allMods + ' type--' + modsList[i].trim();
       }
     }
-  .type(class= allMods)&attributes(attributes)
+  li.type(class= allMods)&attributes(attributes)
     .type__group
       svg.type__icon
           use(href= src.icon + icon)
