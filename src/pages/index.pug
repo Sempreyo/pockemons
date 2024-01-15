@@ -18,12 +18,13 @@ block content
           .per-page
             .per-page__title Per page:
             .per-page__btns
-              .link-btn.link-btn--active 12
-              .link-btn 24
-              .link-btn 48
+              button.link-btn.link-btn--active 12
+              button.link-btn 24
+              button.link-btn 48
           ul.page__filter.filter
             each type, index in types.typesArray
-              +type(type.icon, type.title, type.active ? 'active' : '')
+              li.filter__item
+                +type(type.icon, type.title, type.active ? 'active' : '')
         .page__main
           .page__cards
             each card in cards.cardsArray
