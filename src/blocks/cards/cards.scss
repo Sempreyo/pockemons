@@ -1,0 +1,52 @@
+@import "../../scss/breakpoints";
+
+.cards {
+  grid-column: 1 / span 4;
+
+  @media (min-width: $screen-ti) {
+    grid-column: 5 / span 8;
+  }
+
+  @media (min-width: $screen-d) {
+    grid-column: 2 / span 3;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--back-secondary);
+    border-radius: 24px;
+
+    @media (min-width: $screen-d) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__pagination-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+
+    @media (min-width: $screen-ti) {
+      grid-template-columns: repeat(8, 1fr);
+      margin-top: 48px;
+    }
+  }
+
+  &__pagination-inner {
+    display: flex;
+    grid-column: 1 / span 4;
+    justify-content: center;
+
+    @media (min-width: $screen-ti) {
+      grid-column: 1 / span 8;
+    }
+
+    @media (min-width: $screen-d) {
+      grid-column: 2 / span 4;
+    }
+  }
+}
