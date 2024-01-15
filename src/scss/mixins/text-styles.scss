@@ -44,7 +44,7 @@
   }
 }
 
-@mixin fluid-link-btn {
+@mixin fluid-link-button {
   font-size: fluid(12, 14, 360, 768);
 
   @media screen and (min-width: $screen-ti) {

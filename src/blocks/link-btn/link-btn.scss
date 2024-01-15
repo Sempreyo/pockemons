@@ -1,8 +1,8 @@
 @import "../../scss/breakpoints";
 @import "../../scss/mixins/fluid";
 
-.link-btn {
-  @include fluid-link-btn();
+.link-button {
+  @include fluid-link-button();
 
   display: inline-flex;
   align-items: center;
