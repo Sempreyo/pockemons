@@ -22,7 +22,9 @@ body[data-state="mobile-menu"] {
     transform: translateX(0);
   }
 
-  .page__overlay {
-    display: block;
+  .page {
+    &__overlay {
+      display: block;
+    }
   }
 }
