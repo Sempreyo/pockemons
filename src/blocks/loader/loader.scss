@@ -1,0 +1,41 @@
+@import "../../scss/breakpoints";
+
+.loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-bg);
+  border: 2px dashed var(--border-box);
+  border-radius: 24px;
+
+  &__icon {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    background-color: var(--front-primary);
+    border-radius: 50%;
+    animation: dot-stretching 1.7s infinite ease-in;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--front-primary);
+      border-radius: 50%;
+      content: "";
+    }
+
+    &::before {
+      animation: dot-stretching-before 1.7s infinite ease-in;
+    }
+
+    &::after {
+      animation: dot-stretching-after 1.7s infinite ease-in;
+    }
+  }
+}

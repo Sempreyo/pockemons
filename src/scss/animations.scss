@@ -1,0 +1,44 @@
+@keyframes dot-stretching {
+  0% {
+    transform: scale(1);
+  }
+
+  50%,
+  60% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dot-stretching-before {
+  0% {
+    transform: translateX(0) scale(0.8);
+  }
+
+  50%,
+  60% {
+    transform: translateX(-10px) scale(1);
+  }
+
+  100% {
+    transform: translateX(0) scale(0.8);
+  }
+}
+
+@keyframes dot-stretching-after {
+  0% {
+    transform: translateX(0) scale(0.8);
+  }
+
+  50%,
+  60% {
+    transform: translateX(10px) scale(1);
+  }
+
+  100% {
+    transform: translateX(0) scale(0.8);
+  }
+}

@@ -1,11 +1,8 @@
 @import "../../scss/breakpoints";
-@import "../../scss/mixins/fluid";
 
 // stylelint-disable
 
 %button-common {
-  @include fluid-link-button();
-
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -26,6 +26,9 @@ block content
               li.filter__item
                 +type(type.icon, type.title, type.active ? 'active' : '')
         .cards
+          .box
+            .loader
+              .loader__icon
           .cards__grid
             each card in cards.cardsArray
               +card(card.id, card.img, card.title, card.icons, card.characteristics)
