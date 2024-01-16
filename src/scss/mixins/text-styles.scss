@@ -20,10 +20,14 @@
   }
 
   @media screen and (min-width: $screen-tl) {
-    font-size: fluid(12, 16, 768, 1280);
+    font-size: fluid(12, 13, 768, 1280);
   }
 
   @media screen and (min-width: $screen-d) {
+    font-size: fluid(13, 16, 1280, 1440);
+  }
+
+  @media screen and (min-width: $screen-dl) {
     font-size: 16px;
   }
 }
@@ -40,7 +44,7 @@
   }
 }
 
-@mixin fluid-link-btn {
+@mixin fluid-link-button {
   font-size: fluid(12, 14, 360, 768);
 
   @media screen and (min-width: $screen-ti) {

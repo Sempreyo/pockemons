@@ -1,0 +1,39 @@
+@import "../../scss/breakpoints";
+
+.sidebar {
+  position: fixed;
+  z-index: 96;
+  grid-column: 1 / span 1;
+  max-width: 280px;
+  padding: 8px 8px 80px;
+  overflow-y: auto;
+  background-color: var(--pagination-primary);
+  transform: translateX(-100%);
+  transition: 0.3s ease;
+  inset: 0;
+
+  @media (min-width: $screen-ti) {
+    position: relative;
+    z-index: unset;
+    grid-column: 1 / span 4;
+    max-width: 100%;
+    padding: 0;
+    overflow-y: unset;
+    background-color: transparent;
+    transform: unset;
+    inset: unset;
+  }
+
+  @media (min-width: $screen-d) {
+    grid-column: 1 / span 1;
+    padding: 0 12px 0 0;
+  }
+
+  &__filter {
+    margin-top: 4px;
+
+    @media (min-width: $screen-ti) {
+      margin-top: 16px;
+    }
+  }
+}

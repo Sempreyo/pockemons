@@ -8,26 +8,27 @@ block variables
 
 block content
   .container
-    .page__tabs-wrapper
-      .page__tabs
+    .tabs
+      .tabs__inner
         button.tab.tab--active Pockemons
         button.tab Fight
-    .page__tabs-content
-      .page__grid
-        .page__sidebar
+    .content
+      .content__grid
+        .sidebar
           .per-page
             .per-page__title Per page:
-            .per-page__btns
-              .link-btn.link-btn--active 12
-              .link-btn 24
-              .link-btn 48
-          ul.page__filter.filter
+            .per-page__buttons
+              button.per-page__button.per-page__button--active 12
+              button.per-page__button 24
+              button.per-page__button 48
+          ul.sidebar__filter.filter
             each type, index in types.typesArray
-              +type(type.icon, type.title, type.active ? 'active' : '')
-        .page__main
-          .page__cards
+              li.filter__item
+                +type(type.icon, type.title, type.active ? 'active' : '')
+        .cards
+          .cards__grid
             each card in cards.cardsArray
-              +card(card.id, card.img, card.title, card.icons, card.characteristics)(class='page__card')
-          .page__pagination-wrapper
-            .page__pagination-inner
-              +pagination()(class='page__pagination')
+              +card(card.id, card.img, card.title, card.icons, card.characteristics)
+          .cards__pagination-wrapper
+            .cards__pagination-inner
+              +pagination()

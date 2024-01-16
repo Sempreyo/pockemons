@@ -1,6 +1,6 @@
 @import "../../scss/breakpoints";
 
-.filter-btn {
+.filter-button {
   width: 48px;
   height: 48px;
   padding: 12px;
@@ -18,11 +18,11 @@
 body[data-state="mobile-menu"] {
   overflow: hidden;
 
-  .page {
-    &__sidebar {
-      transform: translateX(0);
-    }
+  .sidebar {
+    transform: translateX(0);
+  }
 
+  .page {
     &__overlay {
       display: block;
     }

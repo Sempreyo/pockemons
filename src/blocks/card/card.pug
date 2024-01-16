@@ -23,26 +23,27 @@ mixin card(id, img, title, iconsArr, characteristicsArr, mods)
     .card__image-wrapper
       .card__id!= id
       img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt='')
-    .card__group
-      h2.card__title!= title
-      .card__icons
-        each icon in iconsArr
-          svg.card__icon
-            use(href= src.icon + icon)
-    .card__characteristics
-      each item, index in characteristicsArr
-        - var icon = ''
-        case index
-          when 0
-            - icon = 'icon__health'
-          when 1
-            - icon = 'icon__speed'
-          when 2
-            - icon = 'icon__attack'
-          when 3
-            - icon = 'icon__defence'
-        .characteristic
-          .characteristic__icon-wrapper
-            svg.characteristic__icon
+    .card__bottom
+      .card__group
+        h2.card__title!= title
+        .card__icons
+          each icon in iconsArr
+            svg.card__icon
               use(href= src.icon + icon)
-          .characteristic__num!= item
+      .card__characteristics
+        each item, index in characteristicsArr
+          - var icon = ''
+          case index
+            when 0
+              - icon = 'icon__health'
+            when 1
+              - icon = 'icon__speed'
+            when 2
+              - icon = 'icon__attack'
+            when 3
+              - icon = 'icon__defence'
+          .characteristic
+            .characteristic__icon-wrapper
+              svg.characteristic__icon
+                use(href= src.icon + icon)
+            .characteristic__num!= item

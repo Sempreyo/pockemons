@@ -41,9 +41,10 @@ html(class='no-js', lang='ru')
     noscript У вас отключен JavaScript. Это пугает.
 
     .page
-      +filter-btn()(class='page__filter-btn')
+      .page__filter-button.filter-button
+        svg.filter-button__icon
+          use(href= src.icon + 'icon__filter')
       .page__overlay
-        .overlay
       .page__main
         block content
 

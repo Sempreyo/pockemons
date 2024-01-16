@@ -1,0 +1,19 @@
+@import "../../scss/breakpoints";
+
+.content {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 0;
+
+    @media (min-width: $screen-ti) {
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 32px;
+    }
+
+    @media (min-width: $screen-d) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
