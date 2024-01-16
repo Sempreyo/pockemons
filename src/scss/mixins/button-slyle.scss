@@ -1,7 +1,9 @@
 @import "../../scss/breakpoints";
 @import "../../scss/mixins/fluid";
 
-.link-button {
+// stylelint-disable
+
+%button-common {
   @include fluid-link-button();
 
   display: inline-flex;
@@ -29,32 +31,31 @@
   &:hover {
     border: 1px solid var(--color-accent);
   }
+}
 
-  &--active {
-    background-color: var(--button-secondary);
-    border-top-color: var(--button-border-secondary);
-    pointer-events: none;
-  }
+%button-common-active {
+  background-color: var(--button-secondary);
+  border-top-color: var(--button-border-secondary);
+  pointer-events: none;
+}
 
-  &--dots {
-    background-color: transparent;
+%button-filled {
+  background-color: transparent !important;
+  border-color: transparent !important;
+
+  &:hover {
     border-color: transparent;
-
-    &:hover {
-      border-color: transparent;
-      cursor: default;
-    }
+    cursor: default;
   }
+}
 
-  &--prev,
-  &--next {
-    order: 1;
-    width: calc(50% - 8px / 2);
-    padding: 7px 16px;
+%button-pagination {
+  order: 1;
+  width: calc(50% - 8px / 2);
+  padding: 7px 16px;
 
-    @media (min-width: $screen-ti) {
-      order: unset;
-      width: auto;
-    }
+  @media (min-width: $screen-ti) {
+    order: unset;
+    width: auto;
   }
 }

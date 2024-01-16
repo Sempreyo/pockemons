@@ -1,4 +1,5 @@
 @import "../../scss/breakpoints";
+@import "../../scss/mixins/button-slyle";
 
 .per-page {
   display: flex;
@@ -19,5 +20,13 @@
   &__buttons {
     display: flex;
     gap: 8px;
+  }
+
+  &__button {
+    @extend %button-common; // stylelint-disable-line
+
+    &--active {
+      @extend %button-common-active; // stylelint-disable-line
+    }
   }
 }
