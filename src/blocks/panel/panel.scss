@@ -1,0 +1,111 @@
+@import "../../scss/breakpoints";
+
+.panel {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  grid-column: 1 / span 4;
+  min-height: 200px;
+  padding: 8px;
+  background-color: var(--back-secondary);
+  border-radius: 24px;
+
+  @media (min-width: $screen-ti) {
+    grid-column: 1 / span 12;
+    min-height: 480px;
+  }
+
+  @media (min-width: $screen-d) {
+    grid-column: 1 / span 4;
+  }
+
+  &__loader {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: center;
+
+    @media (min-width: $screen-ti) {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+    }
+
+    & + #{$block-name}__columns {
+      margin-top: 16px;
+    }
+  }
+
+  &__column {
+    display: grid;
+    gap: 16px;
+    align-self: flex-start;
+
+    &:first-child {
+      grid-column: 1 / span 2;
+
+      @media (min-width: $screen-ti) {
+        grid-column: 1 / span 5;
+      }
+    }
+
+    &:last-child {
+      grid-column: 1 / span 2;
+
+      @media (min-width: $screen-ti) {
+        grid-column: 8 / span 5;
+      }
+    }
+  }
+
+  &__middle {
+    grid-column: 1 / span 2;
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: 0.64px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: $screen-ti) {
+      grid-column: 6 / span 2;
+      padding-top: 72px;
+    }
+  }
+
+  &__button {
+    max-width: 312px;
+    margin: 24px auto 0;
+
+    @media (min-width: $screen-ti) {
+      max-width: 320px;
+      margin: 48px auto 0;
+    }
+  }
+
+  &__result {
+    margin-top: 16px;
+
+    @media (min-width: $screen-ti) {
+      margin-top: 48px;
+    }
+  }
+
+  &__round {
+    grid-column: 1 / span 4;
+    margin: 8px 8px 0;
+
+    @media (min-width: $screen-ti) {
+      grid-column: 1 / span 12;
+      margin: 40px 8px 0;
+    }
+
+    @media (min-width: $screen-d) {
+      grid-column: 1 / span 4;
+    }
+  }
+}

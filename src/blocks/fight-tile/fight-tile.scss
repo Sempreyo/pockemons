@@ -1,0 +1,31 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+
+.fight-tile {
+  position: relative;
+  min-height: 248px;
+  border-radius: 16px;
+
+  &__filler {
+    @include flex-center;
+
+    position: absolute;
+    padding: 8px;
+    color: var(--color-filler-text);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+    text-align: center;
+    border: 2px dashed var(--border-box);
+    border-radius: 16px;
+    inset: 0;
+
+    br {
+      display: block;
+
+      @media (min-width: $screen-ti) {
+        display: none;
+      }
+    }
+  }
+}
