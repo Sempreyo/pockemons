@@ -27,6 +27,7 @@
     top: calc(100% + 10px);
     right: 0;
     left: 0;
+    z-index: 1;
     display: none;
     padding: 8px;
     background-color: var(--back-primary);

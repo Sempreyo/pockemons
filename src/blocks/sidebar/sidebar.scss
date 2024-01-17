@@ -2,9 +2,14 @@
 
 .sidebar {
   position: fixed;
-  z-index: 96;
+  z-index: var(--z-sidebar);
+  display: grid;
+  grid-auto-rows: max-content;
   grid-column: 1 / span 1;
+  gap: 4px;
+  align-items: flex-start;
   max-width: 280px;
+  margin-left: -16px;
   padding: 8px 8px 80px;
   overflow-y: auto;
   background-color: var(--pagination-primary);
@@ -16,8 +21,10 @@
     position: relative;
     z-index: unset;
     grid-column: 1 / span 4;
+    gap: 16px;
     max-width: 100%;
-    padding: 0;
+    margin-left: 0;
+    padding: 0 12px 0 0;
     overflow-y: unset;
     background-color: transparent;
     transform: unset;
@@ -27,13 +34,5 @@
   @media (min-width: $screen-d) {
     grid-column: 1 / span 1;
     padding: 0 12px 0 0;
-  }
-
-  &__filter {
-    margin-top: 4px;
-
-    @media (min-width: $screen-ti) {
-      margin-top: 16px;
-    }
   }
 }

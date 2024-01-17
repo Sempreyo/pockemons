@@ -23,7 +23,7 @@ mixin card(id, img, title, iconsArr, characteristicsArr, mods)
     .card__top
       .card__image-wrapper
         .card__id!= id
-        img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt='')
+        img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt= title)
       .card__group
         h2.card__title!= title
         .card__icons

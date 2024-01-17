@@ -14,14 +14,15 @@ block content
         button.tabs__label(data-href='#tab2') Fight
       .tabs__panes
         .tabs__pane.tabs__pane--active#tab1
+          .tabs__overlay
           .sidebar
             .per-page
               .per-page__title Per page:
               .per-page__buttons
-                button.per-page__button.per-page__button--active 12
-                button.per-page__button 24
-                button.per-page__button 48
-            ul.sidebar__filter.filter
+                button.per-page__button.per-page__button--active(data-per-page='12') 12
+                button.per-page__button(data-per-page='24') 24
+                button.per-page__button(data-per-page='48') 48
+            ul.filter
               each type, index in types.typesArray
                 li.filter__item
                   +type(type.icon, type.title, type.active ? 'active' : '')
@@ -53,7 +54,7 @@ block content
                         else if index > 9 && index < 100
                           - numberPrefix = '0'
                         li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
                   .fight-tile__filler Type name <br> of champion above
@@ -73,49 +74,7 @@ block content
                         else if index > 9 && index < 100
                           - numberPrefix = '0'
                         li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
-                          span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
-                .fight-tile
-                  .fight-tile__filler Type name <br> of champion above
-            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
-          .panel
-            .panel__columns
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader.loader--no-border
-                      .loader__icon
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      if index < 3
-                        - var numberPrefix = ''
-                        if index < 10
-                          - numberPrefix = '00'
-                        else if index > 9 && index < 100
-                          - numberPrefix = '0'
-                        li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
-                          span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
-                .fight-tile
-                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
-              .panel__middle vs
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader.loader--no-border
-                      .loader__icon
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      if index < 3
-                        - var numberPrefix = ''
-                        if index < 10
-                          - numberPrefix = '00'
-                        else if index > 9 && index < 100
-                          - numberPrefix = '0'
-                        li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
                   .fight-tile__filler Type name <br> of champion above
@@ -137,7 +96,7 @@ block content
                         else if index > 9 && index < 100
                           - numberPrefix = '0'
                         li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
                   +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
@@ -157,7 +116,49 @@ block content
                         else if index > 9 && index < 100
                           - numberPrefix = '0'
                         li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
+                          span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
+                .fight-tile
+                  .fight-tile__filler Type name <br> of champion above
+            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
+          .panel
+            .panel__columns
+              .panel__column
+                .combobox
+                  .combobox__field
+                    .combobox__loader.loader.loader--no-border
+                      .loader__icon
+                    input.combobox__input(type='text', placeholder='Choose fighter')
+                  ul.combobox__dropdown
+                    each item, index in cards.cardsArray
+                      if index < 3
+                        - var numberPrefix = ''
+                        if index < 10
+                          - numberPrefix = '00'
+                        else if index > 9 && index < 100
+                          - numberPrefix = '0'
+                        li.combobox__option
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
+                          span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
+                .fight-tile
+                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
+              .panel__middle vs
+              .panel__column
+                .combobox
+                  .combobox__field
+                    .combobox__loader.loader.loader--no-border
+                      .loader__icon
+                    input.combobox__input(type='text', placeholder='Choose fighter')
+                  ul.combobox__dropdown
+                    each item, index in cards.cardsArray
+                      if index < 3
+                        - var numberPrefix = ''
+                        if index < 10
+                          - numberPrefix = '00'
+                        else if index > 9 && index < 100
+                          - numberPrefix = '0'
+                        li.combobox__option
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
                   +card(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3].characteristicsExtended, 'horyzontal')
@@ -179,7 +180,7 @@ block content
                         else if index > 9 && index < 100
                           - numberPrefix = '0'
                         li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
                   +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
@@ -199,7 +200,7 @@ block content
                         else if index > 9 && index < 100
                           - numberPrefix = '0'
                         li.combobox__option
-                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt='')
+                          img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
                   +card(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3].characteristicsExtended, 'horyzontal')
