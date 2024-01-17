@@ -40,6 +40,114 @@
     }
   }
 
+  &--horyzontal {
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+
+    @media (min-width: $screen-d) {
+      flex-direction: row;
+      padding: 7px 8px 8px;
+    }
+
+    &:hover {
+      .characteristic {
+        &__icon-wrapper {
+          border-right-color: var(--button-border-secondary);
+        }
+      }
+    }
+
+    .characteristic { // stylelint-disable-line
+      flex-direction: row;
+      width: calc(50% - 8px / 2);
+
+      &__icon-wrapper { // stylelint-disable-line
+        width: auto;
+        border-right: 1px solid var(--button-border-primary);
+        border-bottom: 0;
+
+        @media (min-width: $screen-ti) {
+          border-right-color: var(--button-border-secondary);
+        }
+      }
+
+      &__icon {
+        width: 24px;
+        height: 24px;
+
+        @media (min-width: $screen-ti) {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      &__num {
+        font-size: 16px;
+      }
+    }
+
+    #{$block-name} {
+      &__top {
+        width: 100%;
+
+        @media (min-width: $screen-d) {
+          max-width: 152px;
+        }
+      }
+
+      &__id {
+        top: 12px;
+        left: 12px;
+        font-size: 12px;
+      }
+
+      &__image-wrapper {
+        padding: 16px;
+      }
+
+      &__image {
+        width: auto;
+      }
+
+      &__group {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      &__title {
+        font-size: 16px;
+      }
+
+      &__icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      &__bottom {
+        margin-top: 0;
+        padding: 0;
+      }
+
+      &__characteristics {
+        gap: 8px;
+
+        & > *:nth-child(n + 5) {
+          display: flex;
+        }
+
+        & > *:nth-child(7) .characteristic {
+          &__num {
+            padding-top: 7px;
+            padding-bottom: 7px;
+          }
+        }
+      }
+    }
+  }
+
   &__id {
     @include fluid-card-id();
 
@@ -80,27 +188,28 @@
     }
   }
 
-  &__bottom {
-    margin-top: 8px;
-
-    @media (min-width: $screen-ti) {
-      margin-top: 16px;
-      padding: 0 8px;
-    }
-  }
-
   &__group {
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
-    margin-bottom: 16px;
+    margin-top: 8px;
 
     @media (min-width: $screen-ti) {
       flex-direction: row;
       align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-top: 16px;
+      padding: 0 8px;
+    }
+  }
+
+  &__bottom {
+    margin-top: 16px;
+
+    @media (min-width: $screen-ti) {
+      margin-top: 24px;
+      padding: 0 8px;
     }
   }
 
@@ -109,7 +218,7 @@
 
     margin: 0;
     font-weight: 400;
-    line-height: 1.24;
+    line-height: 1.25;
     letter-spacing: 0.32px;
     white-space: nowrap;
     text-align: center;
@@ -147,10 +256,25 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    margin-top: auto;
 
     @media (min-width: $screen-ti) {
       gap: 8px;
+    }
+
+    & > *:nth-child(n + 5) {
+      display: none;
+    }
+
+    & > *:nth-child(7),
+    & > *:nth-child(8) {
+      width: 100%;
+    }
+
+    & > *:nth-child(8) .characteristic {
+      &__num {
+        font-size: 12px;
+        line-height: 1.33;
+      }
     }
   }
 }

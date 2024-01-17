@@ -1,13 +1,14 @@
 @import "../../scss/breakpoints";
 @import "../../scss/mixins/text-styles";
+@import "../../scss/mixins/flexbox";
 
 .characteristic {
   $block-name: &; // #{$block-name}__element
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: calc(50% - 4px / 2);
+  min-height: 40px;
   border: 1px solid var(--button-border-primary);
   border-radius: 8px;
   transition: 0.3s ease;
@@ -18,9 +19,8 @@
   }
 
   &__icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
+
     width: 100%;
     padding: 6px 12px;
     border-bottom: 1px solid var(--button-border-primary);
@@ -45,8 +45,10 @@
   }
 
   &__num {
-    @include fluid-num();
+    @include fluid-num;
+    @include flex-center;
 
+    gap: 8px;
     width: 100%;
     padding: 8px;
     line-height: 1;

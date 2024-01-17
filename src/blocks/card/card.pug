@@ -20,30 +20,63 @@ mixin card(id, img, title, iconsArr, characteristicsArr, mods)
       }
     }
   .card(class= allMods)&attributes(attributes)
-    .card__image-wrapper
-      .card__id!= id
-      img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt='')
-    .card__bottom
+    .card__top
+      .card__image-wrapper
+        .card__id!= id
+        img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt='')
       .card__group
         h2.card__title!= title
         .card__icons
           each icon in iconsArr
             svg.card__icon
               use(href= src.icon + icon)
+    .card__bottom
       .card__characteristics
-        each item, index in characteristicsArr
-          - var icon = ''
-          case index
-            when 0
-              - icon = 'icon__health'
-            when 1
-              - icon = 'icon__speed'
-            when 2
-              - icon = 'icon__attack'
-            when 3
-              - icon = 'icon__defence'
-          .characteristic
-            .characteristic__icon-wrapper
-              svg.characteristic__icon
-                use(href= src.icon + icon)
-            .characteristic__num!= item
+        if allMods= 'horyzontal'
+          each item, index in characteristicsArr
+            - var icon = ''
+            case index
+              when 0
+                - icon = 'health'
+              when 1
+                - icon = 'attack'
+              when 2
+                - icon = 'speed'
+              when 3
+                - icon = 'defence'
+              when 4
+                - icon = 'weight'
+              when 5
+                - icon = 'height'
+              when 6
+                - icon = 'weakness'
+              when 7
+                - icon = 'abilitie'
+            .characteristic
+              .characteristic__icon-wrapper
+                svg.characteristic__icon
+                  use(href= src.icon + 'icon__' + icon)
+              if Array.isArray(item)
+                .characteristic__num
+                  each icon in item
+                    svg.characteristic__icon
+                      use(href= src.icon + 'icon__' + icon)
+              else
+                .characteristic__num!= item
+        else
+          each item, index in characteristicsArr
+            - var icon = ''
+            case index
+              when 0
+                - icon = 'health'
+              when 1
+                - icon = 'speed'
+              when 2
+                - icon = 'attack'
+              when 3
+                - icon = 'defence'
+            .characteristic
+              .characteristic__icon-wrapper
+                svg.characteristic__icon
+                  use(href= src.icon + 'icon__' + icon)
+              .characteristic__num!= item
