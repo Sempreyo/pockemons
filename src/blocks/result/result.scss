@@ -1,0 +1,28 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+
+.result {
+  @include flex-center;
+
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.32px;
+  border: 2px dashed var(--border-box);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px 0 rgb(0 0 0 / 10%);
+
+  @media (min-width: $screen-ti) {
+    padding: 26px 16px;
+    font-size: 32px;
+    letter-spacing: 0.64px;
+  }
+
+  &--red {
+    color: var(--color-red);
+  }
+
+  &--yellow {
+    color: var(--color-yellow);
+  }
+}

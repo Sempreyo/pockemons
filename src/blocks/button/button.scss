@@ -1,0 +1,46 @@
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.button {
+  $block-name: &; // #{$block-name}__element
+
+  @include flex-center;
+
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: transparent;
+  border-top: 1px solid var(--button-border-quaternary);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+  appearance: none;
+
+  &--primary {
+    background-color: var(--color-red);
+
+    &:hover {
+      background-color: rgb(235 87 87 / 80%);
+    }
+
+    &[disabled],
+    &#{$block-name}--disabled {
+      color: var(--button-disabled-text);
+      background-color: var(--button-disabled);
+      border-color: var(--button-border-disabled);
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &__title {
+    display: block;
+  }
+}
