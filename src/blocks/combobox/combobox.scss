@@ -1,0 +1,57 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/list-reset";
+
+.combobox {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: 15px 16px 15px 56px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+    background-color: var(--back-primary);
+    border: 1px solid var(--back-primary);
+    border-bottom-color: var(--button-border-primary);
+    border-radius: 16px;
+
+    &::placeholder {
+      color: var(--color-placeholder);
+    }
+  }
+
+  &__dropdown {
+    @include list-reset;
+
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: 0;
+    display: none;
+    padding: 8px;
+    background-color: var(--back-primary);
+    border-radius: 16px;
+  }
+
+  &__option {
+    padding: 0 8px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: var(--back-tertiary);
+    }
+  }
+
+  &__image {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__loader {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: none !important;
+  }
+}
