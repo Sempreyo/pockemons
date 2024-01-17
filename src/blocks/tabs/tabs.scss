@@ -19,12 +19,67 @@
     backdrop-filter: unset;
   }
 
-  &__inner {
+  &__labels {
     display: flex;
     gap: 8px;
     align-items: center;
     padding: 8px;
     background-color: var(--back-secondary);
     border-radius: 24px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 7px 16px 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+    background-color: var(--button-primary);
+    border-top: 1px solid var(--button-border-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    user-select: none;
+
+    @media (min-width: $screen-ti) {
+      padding: 15px 16px 16px;
+      border-radius: 16px;
+    }
+
+    &:hover {
+      background-color: var(--button-tertiary);
+      border-top: 1px solid var(--button-border-tertiary);
+    }
+
+    &--active {
+      background-color: var(--button-secondary);
+      border-top: 1px solid var(--button-border-secondary);
+      pointer-events: none;
+    }
+  }
+
+  &__panes {
+    margin-top: 12px;
+
+    @media (min-width: $screen-ti) {
+      margin-top: 32px;
+    }
+  }
+
+  &__pane {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+
+    @media (min-width: $screen-ti) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @media (min-width: $screen-d) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }

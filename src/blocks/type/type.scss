@@ -1,5 +1,6 @@
 @import "../../scss/breakpoints";
 @import "../../scss/mixins/fluid";
+@import "../../scss/mixins/flexbox";
 
 .type {
   $block-name: &; // #{$block-name}__element
@@ -59,9 +60,8 @@
   }
 
   &__num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
+
     min-width: 48px;
     padding: 7px;
     color: var(--button-tertiary);
