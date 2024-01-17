@@ -75,11 +75,6 @@
       &__icon {
         width: 24px;
         height: 24px;
-
-        @media (min-width: $screen-ti) {
-          width: 16px;
-          height: 16px;
-        }
       }
 
       &__num {
@@ -268,13 +263,6 @@
     & > *:nth-child(7),
     & > *:nth-child(8) {
       width: 100%;
-    }
-
-    & > *:nth-child(8) .characteristic {
-      &__num {
-        font-size: 12px;
-        line-height: 1.33;
-      }
     }
   }
 }

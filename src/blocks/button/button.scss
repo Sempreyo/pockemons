@@ -21,7 +21,11 @@
     background-color: var(--color-red);
 
     &:hover {
-      background-color: rgb(235 87 87 / 80%);
+      background-color: var(--color-orange);
+    }
+
+    &:active {
+      background-color: var(--color-purple);
     }
 
     &[disabled],

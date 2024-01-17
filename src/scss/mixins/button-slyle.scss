@@ -36,16 +36,6 @@
   pointer-events: none;
 }
 
-%button-filled {
-  background-color: transparent !important;
-  border-color: transparent !important;
-
-  &:hover {
-    border-color: transparent;
-    cursor: default;
-  }
-}
-
 %button-pagination {
   order: 1;
   width: calc(50% - 8px / 2);

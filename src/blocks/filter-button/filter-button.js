@@ -3,7 +3,7 @@ import toggleState from "../../js/common/toggleState.js";
 
 ready(function () {
   const filterButton = document.querySelector(".filter-button");
-  const overlay = document.querySelector(".page__overlay");
+  const overlay = document.querySelector(".tabs__overlay");
 
   if (filterButton) {
     filterButton.addEventListener("click", () => {

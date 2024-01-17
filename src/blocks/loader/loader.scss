@@ -15,30 +15,37 @@
 
   &__icon {
     position: relative;
+  }
+
+  &__part-1,
+  &__part-2,
+  &__part-3 {
+    display: block;
     width: 6px;
     height: 6px;
     background-color: var(--front-primary);
     border-radius: 50%;
-    animation: dot-stretching 1.7s infinite ease-in;
+    transform: rotate(0deg) translateX(0);
+  }
 
-    &::before,
-    &::after {
-      position: absolute;
-      top: 0;
-      display: block;
-      width: 6px;
-      height: 6px;
-      background-color: var(--front-primary);
-      border-radius: 50%;
-      content: "";
-    }
+  &__part-1,
+  &__part-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-    &::before {
-      animation: dot-stretching-before 1.7s infinite ease-in;
-    }
+  &__part-1 {
+    transform: rotate(0deg) translateX(-10px);
+    animation: dot-stretching-before 3s infinite ease-in-out;
+  }
 
-    &::after {
-      animation: dot-stretching-after 1.7s infinite ease-in;
-    }
+  &__part-2 {
+    animation: dot-stretching 3s infinite ease-in-out;
+  }
+
+  &__part-3 {
+    transform: rotate(0deg) translateX(10px);
+    animation: dot-stretching-after 3s infinite ease-in-out;
   }
 }
