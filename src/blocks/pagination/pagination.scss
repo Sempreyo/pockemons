@@ -24,8 +24,8 @@
       @extend %button-common-active; // stylelint-disable-line
     }
 
-    &--prev,
-    &--next {
+    &--first,
+    &--last {
       @extend %button-pagination; // stylelint-disable-line
     }
   }
