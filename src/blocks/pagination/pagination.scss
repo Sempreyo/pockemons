@@ -18,15 +18,15 @@
   }
 
   &__link {
-    @extend %button-common; // stylelint-disable-line
+    @extend %button-common;
 
     &--active {
-      @extend %button-common-active; // stylelint-disable-line
+      @extend %button-common-active;
     }
 
     &--first,
     &--last {
-      @extend %button-pagination; // stylelint-disable-line
+      @extend %button-pagination;
     }
   }
 

@@ -23,10 +23,10 @@
   }
 
   &__button {
-    @extend %button-common; // stylelint-disable-line
+    @extend %button-common;
 
     &--active {
-      @extend %button-common-active; // stylelint-disable-line
+      @extend %button-common-active;
     }
   }
 }
