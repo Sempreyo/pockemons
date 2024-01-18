@@ -9,9 +9,10 @@ block variables
 block content
   .container
     .tabs
-      .tabs__labels
-        button.tabs__label.tabs__label--active(data-href='#tab1') Pockemons
-        button.tabs__label(data-href='#tab2') Fight
+      .tabs__labels-semitransparent
+        .tabs__labels
+          button.tabs__label.tabs__label--active(data-href='#tab1') Pockemons
+          button.tabs__label(data-href='#tab2') Fight
       .tabs__panes
         .tabs__pane.tabs__pane--active#tab1
           .tabs__overlay
