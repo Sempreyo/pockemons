@@ -25,6 +25,10 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   background-color: var(--body-bg);
+
+  &[data-state="filter-menu"] {
+    overflow: hidden;
+  }
 }
 
 svg {

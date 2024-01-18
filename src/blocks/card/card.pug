@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (card)
 //- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
-mixin card(id, img, title, iconsArr, characteristicsArr, mods)
+mixin card(id, img, title, iconsArr, characteristicsObj, mods)
 
   //- Принимает:
   //-   id      {string} - номер карточки
@@ -25,58 +25,22 @@ mixin card(id, img, title, iconsArr, characteristicsArr, mods)
         .card__id!= id
         img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt= title)
       .card__group
-        h2.card__title!= title
+        h2.card__title(title=title)!= title
         .card__icons
           each icon in iconsArr
             svg.card__icon
               use(href= src.icon + icon)
     .card__bottom
       .card__characteristics
-        if allMods= 'horyzontal'
-          each item, index in characteristicsArr
-            - var icon = ''
-            case index
-              when 0
-                - icon = 'health'
-              when 1
-                - icon = 'attack'
-              when 2
-                - icon = 'speed'
-              when 3
-                - icon = 'defence'
-              when 4
-                - icon = 'weight'
-              when 5
-                - icon = 'height'
-              when 6
-                - icon = 'weakness'
-              when 7
-                - icon = 'abilitie'
-            .characteristic
-              .characteristic__icon-wrapper
-                svg.characteristic__icon
-                  use(href= src.icon + 'icon__' + icon)
-              if Array.isArray(item)
-                .characteristic__num
-                  each icon in item
-                    svg.characteristic__icon
-                      use(href= src.icon + 'icon__' + icon)
-              else
-                .characteristic__num!= item
-        else
-          each item, index in characteristicsArr
-            - var icon = ''
-            case index
-              when 0
-                - icon = 'health'
-              when 1
-                - icon = 'speed'
-              when 2
-                - icon = 'attack'
-              when 3
-                - icon = 'defence'
-            .characteristic
-              .characteristic__icon-wrapper
-                svg.characteristic__icon
-                  use(href= src.icon + 'icon__' + icon)
+        each item, key in characteristicsObj
+          .characteristic(class= key === 'weakness' || key === 'abilitie' ? 'characteristic--wide' : "")
+            .characteristic__icon-wrapper
+              svg.characteristic__icon
+                use(href= src.icon + 'icon__' + key)
+            if key === 'weakness'
+              .characteristic__num
+                each icon in item
+                  svg.characteristic__icon
+                    use(href= src.icon + 'icon__' + icon)
+            else
               .characteristic__num!= item

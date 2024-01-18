@@ -1,14 +1,9 @@
 @import "../../scss/breakpoints";
 
 .tabs {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-tabs);
   width: 100%;
-  padding: 12px 0;
   background: rgb(19 22 25 / 70%);
   border-radius: 0 0 8px 8px;
-  backdrop-filter: blur(4px);
 
   @media (min-width: $screen-ti) {
     position: relative;
@@ -17,6 +12,24 @@
     padding: 0;
     border-radius: unset;
     backdrop-filter: unset;
+  }
+
+  &__labels-semitransparent {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-tabs);
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    padding: 12px 16px;
+    backdrop-filter: blur(4px);
+
+    @media (min-width: $screen-ti) {
+      position: relative;
+      width: 100%;
+      margin-left: 0;
+      padding: 0;
+      backdrop-filter: unset;
+    }
   }
 
   &__labels {
@@ -62,8 +75,6 @@
   }
 
   &__panes {
-    margin-top: 12px;
-
     @media (min-width: $screen-ti) {
       margin-top: 32px;
     }
@@ -92,5 +103,9 @@
     height: 100%;
     background-color: rgb(19 22 25 / 70%);
     backdrop-filter: blur(4px);
+
+    [data-state="filter-menu"] & {
+      display: block;
+    }
   }
 }

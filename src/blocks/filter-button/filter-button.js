@@ -7,11 +7,11 @@ ready(function () {
 
   if (filterButton) {
     filterButton.addEventListener("click", () => {
-      toggleState(document.body, "mobile-menu");
+      toggleState(document.body, "filter-menu");
     });
 
     overlay.addEventListener("click", () => {
-      toggleState(document.body, "mobile-menu");
+      toggleState(document.body, "filter-menu");
     });
   }
 });

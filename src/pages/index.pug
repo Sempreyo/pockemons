@@ -9,9 +9,10 @@ block variables
 block content
   .container
     .tabs
-      .tabs__labels
-        button.tabs__label.tabs__label--active(data-href='#tab1') Pockemons
-        button.tabs__label(data-href='#tab2') Fight
+      .tabs__labels-semitransparent
+        .tabs__labels
+          button.tabs__label.tabs__label--active(data-href='#tab1') Pockemons
+          button.tabs__label(data-href='#tab2') Fight
       .tabs__panes
         .tabs__pane.tabs__pane--active#tab1
           .tabs__overlay
@@ -111,7 +112,7 @@ block content
                           img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
-                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
+                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristics, 'horyzontal')
               .panel__middle vs
               .panel__column
                 .combobox
@@ -159,7 +160,7 @@ block content
                           img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
-                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
+                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristics, 'horyzontal')
               .panel__middle vs
               .panel__column
                 .combobox
@@ -182,7 +183,7 @@ block content
                           img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
-                  +card(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3].characteristicsExtended, 'horyzontal')
+                  +card(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3].characteristics, 'horyzontal')
             +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button')
           .panel
             .panel__columns
@@ -207,7 +208,7 @@ block content
                           img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
-                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristicsExtended, 'horyzontal')
+                  +card(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0].characteristics, 'horyzontal')
               .panel__middle vs
               .panel__column
                 .combobox
@@ -230,7 +231,7 @@ block content
                           img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
                           span.combobox__title #{numberPrefix}#{index} &mdash; #{item.title}
                 .fight-tile
-                  +card(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3].characteristicsExtended, 'horyzontal')
+                  +card(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3].characteristics, 'horyzontal')
             +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button')
             .panel__result.result.result--red Charmander is the winner!
           .panel__round.result.result--yellow Round draw!

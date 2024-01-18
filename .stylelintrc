@@ -15,6 +15,7 @@
       "ignoreAtRules": [
         "/^at-/",
         "/^mixin/",
+        "/^extend/",
         "/^include/",
         "/^if/",
         "/^else/",

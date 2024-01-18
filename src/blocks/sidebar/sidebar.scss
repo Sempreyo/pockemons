@@ -2,20 +2,22 @@
 
 .sidebar {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: var(--z-sidebar);
   display: grid;
   grid-auto-rows: max-content;
   grid-column: 1 / span 1;
   gap: 4px;
   align-items: flex-start;
+  width: 100%;
   max-width: 280px;
-  margin-left: -16px;
+  height: 100vh;
   padding: 8px 8px 80px;
   overflow-y: auto;
   background-color: var(--pagination-primary);
   transform: translateX(-100%);
   transition: 0.3s ease;
-  inset: 0;
 
   @media (min-width: $screen-ti) {
     position: relative;
@@ -34,5 +36,9 @@
   @media (min-width: $screen-d) {
     grid-column: 1 / span 1;
     padding: 0 12px 0 0;
+  }
+
+  [data-state="filter-menu"] & {
+    transform: translateX(0);
   }
 }
