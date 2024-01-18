@@ -48,7 +48,8 @@ let config = {
     // "src/scss/typography.scss",
     // "src/scss/vendor.scss",
     "src/scss/fonts.scss",
-    "src/scss/animations.scss"
+    "src/scss/animations.scss",
+    "src/blocks/loader/loader.scss"
     // "somePackage/dist/somePackage.css", // для "node_modules/somePackage/dist/somePackage.css",
   ],
   "addStyleAfter": [],
