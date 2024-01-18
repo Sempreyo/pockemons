@@ -1,9 +1,8 @@
 //- Все примеси в этом файле должны начинаться c имени блока (type)
 //- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
-mixin type(icon, title, mods)
+mixin type(title, mods)
 
   //- Принимает:
-  //-   icon    {string} - иконка
   //-   title    {string} - заголовок
   //-   mods    {string} - список модификаторов
   //- Вызов:
@@ -20,6 +19,6 @@ mixin type(icon, title, mods)
   button.type(class= allMods)&attributes(attributes)
     .type__group
       svg.type__icon
-          use(href= src.icon + icon)
+          use(href= src.icon + 'icon__' + title)
       .type__title!= title
     .type__num 999

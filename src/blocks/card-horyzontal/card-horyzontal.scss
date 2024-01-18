@@ -1,0 +1,117 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/text-styles";
+@import "../../scss/mixins/card-style";
+
+.card-horyzontal {
+  $block-name: &; // #{$block-name}__element
+
+  @include card-common($block-name);
+
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+
+  @media (min-width: $screen-d) {
+    flex-direction: row;
+    padding: 7px 8px 8px;
+  }
+
+  &__top {
+    width: 100%;
+
+    @media (min-width: $screen-d) {
+      max-width: 152px;
+    }
+  }
+
+  &__id {
+    top: 12px;
+    left: 12px;
+    font-size: 12px;
+
+    @media (min-width: $screen-ti) {
+      top: 12px;
+      left: 12px;
+      font-size: 12px;
+    }
+
+    @media (min-width: $screen-d) {
+      top: 12px;
+      left: 12px;
+      font-size: 12px;
+    }
+  }
+
+  &__image-wrapper {
+    padding: 16px;
+
+    @media (min-width: $screen-ti) {
+      padding: 16px;
+    }
+  }
+
+  &__image {
+    width: auto;
+  }
+
+  &__group {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+
+    @media (min-width: $screen-ti) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+    }
+  }
+
+  &__title {
+    max-width: 230px;
+    font-size: 16px;
+
+    @media (min-width: $screen-t) {
+      max-width: 480px;
+    }
+
+    @media (min-width: $screen-ti) {
+      max-width: 260px;
+      font-size: 16px;
+    }
+
+    @media (min-width: $screen-tl) {
+      max-width: 350px;
+    }
+
+    @media (min-width: $screen-d) {
+      max-width: 140px;
+      font-size: 16px;
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+
+    @media (min-width: $screen-ti) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__bottom {
+    margin-top: 0;
+    padding: 0;
+
+    @media (min-width: $screen-ti) {
+      margin-top: 0;
+      padding: 0;
+    }
+  }
+
+  &__characteristics {
+    gap: 8px;
+  }
+}

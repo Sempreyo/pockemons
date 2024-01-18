@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (card)
 //- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
-mixin card(id, img, title, iconsArr, characteristicsObj, mods)
+mixin card(id, img, title, iconsArr, cardObj, mods)
 
   //- Принимает:
   //-   id      {string} - номер карточки
@@ -29,18 +29,40 @@ mixin card(id, img, title, iconsArr, characteristicsObj, mods)
         .card__icons
           each icon in iconsArr
             svg.card__icon
-              use(href= src.icon + icon)
+              use(href= src.icon + 'icon__' + icon)
     .card__bottom
       .card__characteristics
-        each item, key in characteristicsObj
-          .characteristic(class= key === 'weakness' || key === 'abilitie' ? 'characteristic--wide' : "")
-            .characteristic__icon-wrapper
+        .characteristic
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__health')
+          .characteristic__num!= cardObj.base.HP
+        .characteristic
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__speed')
+          .characteristic__num!= cardObj.base.Speed
+        .characteristic
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__attack')
+          .characteristic__num
+            span!= cardObj.base.Attack
+            | /
+            span!= cardObj.base.Sp_Attack
+        .characteristic
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__defence')
+          .characteristic__num
+            span!= cardObj.base.Defense
+            | /
+            span!= cardObj.base.Sp_Defense
+        //.characteristic.characteristic--wide
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__' + key)
+          .characteristic__num
+            each icon in item
               svg.characteristic__icon
-                use(href= src.icon + 'icon__' + key)
-            if key === 'weakness'
-              .characteristic__num
-                each icon in item
-                  svg.characteristic__icon
-                    use(href= src.icon + 'icon__' + icon)
-            else
-              .characteristic__num!= item
+                use(href= src.icon + 'icon__' + icon)

@@ -1,0 +1,86 @@
+//- Все примеси в этом файле должны начинаться c имени блока (card-horyzontal)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+mixin card-horyzontal(id, img, title, iconsArr, cardObj, mods)
+
+  //- Принимает:
+  //-   id      {string} - номер карточки
+  //-   img      {string} - картинка
+  //-   title    {string} - заголовок
+  //-   iconsArr {array} - массив иконок типов
+  //-   mods     {string} - список модификаторов
+  //- Вызов:
+        +card-horyzontal('001', '1.png', 'Bulbasaur', ['poison', 'grass'], 'some-mod')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' card-horyzontal--' + modsList[i].trim();
+      }
+    }
+  .card-horyzontal(class= allMods)&attributes(attributes)
+    .card-horyzontal__top
+      .card-horyzontal__image-wrapper
+        .card-horyzontal__id!= id
+        img.card-horyzontal__image(src= src.img + img, srcset= src.img + img + ' 2x', alt= title)
+      .card-horyzontal__group
+        h2.card-horyzontal__title(title=title)!= title
+        .card-horyzontal__icons
+          each icon in iconsArr
+            svg.card-horyzontal__icon
+              use(href= src.icon + 'icon__' + icon)
+    .card-horyzontal__bottom
+      .card-horyzontal__characteristics
+        .characteristic.characteristic--static
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__health')
+          .characteristic__num!= cardObj.base.HP
+        .characteristic.characteristic--static
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__attack')
+          .characteristic__num
+            span!= cardObj.base.Attack
+            | /
+            span!= cardObj.base.Sp_Attack
+        .characteristic.characteristic--static
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__speed')
+          .characteristic__num!= cardObj.base.Speed
+        .characteristic.characteristic--static
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__defence')
+          .characteristic__num
+            span!= cardObj.base.Defense
+            | /
+            span!= cardObj.base.Sp_Defense
+        .characteristic.characteristic--static
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__weight')
+          .characteristic__num!= cardObj.weight
+        .characteristic.characteristic--static
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__height')
+          .characteristic__num!= cardObj.height
+        .characteristic.characteristic--static.characteristic--wide
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__weakness')
+          .characteristic__num
+            each icon in cardObj.weakness
+              svg.characteristic__icon
+                use(href= src.icon + 'icon__' + icon)
+        .characteristic.characteristic--static.characteristic--wide
+          .characteristic__icon-wrapper
+            svg.characteristic__icon
+              use(href= src.icon + 'icon__abilities')
+          .characteristic__num
+            .characteristic__num
+              each item, index in cardObj.abilities
+                span!= item + (index !== cardObj.abilities.length - 1 ? ', ' : '')
