@@ -66,10 +66,6 @@
         width: auto;
         border-right: 1px solid var(--button-border-primary);
         border-bottom: 0;
-
-        @media (min-width: $screen-ti) {
-          border-right-color: var(--button-border-secondary);
-        }
       }
 
       &__icon {
