@@ -18,6 +18,17 @@
     width: calc(50% - 8px / 2);
   }
 
+  &--wide {
+    width: 100% !important;
+
+    #{$block-name} {
+      &__num {
+        padding-top: 7px;
+        padding-bottom: 7px;
+      }
+    }
+  }
+
   &__icon-wrapper {
     @include flex-center;
 
