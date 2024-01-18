@@ -25,7 +25,7 @@ mixin card(id, img, title, iconsArr, characteristicsArr, mods)
         .card__id!= id
         img.card__image(src= src.img + img, srcset= src.img + img + ' 2x', alt= title)
       .card__group
-        h2.card__title!= title
+        h2.card__title(title=title)!= title
         .card__icons
           each icon in iconsArr
             svg.card__icon
