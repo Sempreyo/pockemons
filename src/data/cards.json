@@ -5,138 +5,166 @@
       "img": "1.png",
       "title": "Bulbasaur",
       "icons": [
-        "icon__poison",
-        "icon__grass"
+        "Poison",
+        "Grass"
       ],
-      "characteristics": {
-        "health": "00",
-        "attack": "00 / 00",
-        "speed": "00",
-        "defence": "00 / 00",
-        "weight": "00.0",
-        "height": "00",
-        "weakness": [
-          "fire",
-          "psychic",
-          "flying",
-          "ice"
-        ],
-        "abilitie": "Overgrow"
-      }
+      "base": {
+        "Attack": 49,
+        "Defense": 49,
+        "HP": 45,
+        "Sp_Attack": 65,
+        "Sp_Defense": 65,
+        "Speed": 45
+      },
+      "weight": "12,1",
+      "height": 3,
+      "weakness": [
+        "Fire",
+        "Psychic",
+        "Flying",
+        "Ice"
+      ],
+      "abilities": [
+        "Overgrow"
+      ]
     },
     {
       "id": "002",
       "img": "2.png",
       "title": "Ivysaur",
       "icons": [
-        "icon__poison",
-        "icon__grass"
+        "Poison",
+        "Grass"
       ],
-      "characteristics": {
-        "health": "00",
-        "attack": "00 / 00",
-        "speed": "00",
-        "defence": "00 / 00",
-        "weight": "00.0",
-        "height": "00",
-        "weakness": [
-          "fire",
-          "psychic",
-          "flying",
-          "ice"
-        ],
-        "abilitie": "Overgrow"
-      }
+      "base": {
+        "Attack": 62,
+        "Defense": 63,
+        "HP": 60,
+        "Sp_Attack": 80,
+        "Sp_Defense": 80,
+        "Speed": 60
+      },
+      "weight": "12,1",
+      "height": 3,
+      "weakness": [
+        "Fire",
+        "Psychic",
+        "Flying",
+        "Ice"
+      ],
+      "abilities": [
+        "Overgrow"
+      ]
     },
     {
       "id": "003",
       "img": "3.png",
       "title": "Venusaur",
       "icons": [
-        "icon__poison",
-        "icon__grass"
+        "Poison",
+        "Grass"
       ],
-      "characteristics": {
-        "health": "00",
-        "attack": "00 / 00",
-        "speed": "00",
-        "defence": "00 / 00",
-        "weight": "00.0",
-        "height": "00",
-        "weakness": [
-          "fire",
-          "psychic",
-          "flying",
-          "ice"
-        ],
-        "abilitie": "Overgrow"
-      }
+      "base": {
+        "Attack": 49,
+        "Defense": 49,
+        "HP": 45,
+        "Sp_Attack": 65,
+        "Sp_Defense": 65,
+        "Speed": 45
+      },
+      "weight": "12,1",
+      "height": 3,
+      "weakness": [
+        "Fire",
+        "Psychic",
+        "Flying",
+        "Ice"
+      ],
+      "abilities": [
+        "Overgrow"
+      ]
     },
     {
       "id": "004",
       "img": "4.png",
       "title": "Charmander",
       "icons": [
-        "icon__fire"
+        "Fire"
       ],
-      "characteristics": {
-        "health": "00",
-        "attack": "00 / 00",
-        "speed": "00",
-        "defence": "00 / 00",
-        "weight": "00.0",
-        "height": "00",
-        "weakness": [
-          "water",
-          "ground",
-          "rock"
-        ],
-        "abilitie": "Blaze"
-      }
+      "base": {
+        "Attack": 49,
+        "Defense": 49,
+        "HP": 45,
+        "Sp_Attack": 65,
+        "Sp_Defense": 65,
+        "Speed": 45
+      },
+      "weight": "12,1",
+      "height": 3,
+      "weakness": [
+        "Fire",
+        "Psychic",
+        "Flying",
+        "Ice"
+      ],
+      "abilities": [
+        "Blaze",
+        "Overgrow"
+      ]
     },
     {
       "id": "005",
       "img": "5.png",
       "title": "Charmeleon",
       "icons": [
-        "icon__fire"
+        "Fire"
       ],
-      "characteristics": {
-        "health": "00",
-        "attack": "00 / 00",
-        "speed": "00",
-        "defence": "00 / 00",
-        "weight": "00.0",
-        "height": "00",
-        "weakness": [
-          "water",
-          "ground",
-          "rock"
-        ],
-        "abilitie": "Blaze"
-      }
+      "base": {
+        "Attack": 49,
+        "Defense": 49,
+        "HP": 45,
+        "Sp_Attack": 65,
+        "Sp_Defense": 65,
+        "Speed": 45
+      },
+      "weight": "12,1",
+      "height": 3,
+      "weakness": [
+        "Fire",
+        "Psychic",
+        "Flying",
+        "Ice"
+      ],
+      "abilities": [
+        "Overgrow"
+      ]
     },
     {
       "id": "006",
       "img": "6.png",
       "title": "Charizard",
       "icons": [
-        "icon__fire"
+        "Fire"
       ],
-      "characteristics": {
-        "health": "00",
-        "attack": "00 / 00",
-        "speed": "00",
-        "defence": "00 / 00",
-        "weight": "00.0",
-        "height": "00",
-        "weakness": [
-          "water",
-          "ground",
-          "rock"
-        ],
-        "abilitie": "Blaze"
-      }
+      "base": {
+        "Attack": 49,
+        "Defense": 49,
+        "HP": 45,
+        "Sp_Attack": 65,
+        "Sp_Defense": 65,
+        "Speed": 45
+      },
+      "weight": "12,1",
+      "height": 3,
+      "weakness": [
+        "Fire",
+        "Psychic",
+        "Flying",
+        "Ice"
+      ],
+      "abilities": [
+        "Overgrow"
+      ]
     }
   ]
 }
