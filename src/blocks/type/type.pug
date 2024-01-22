@@ -16,9 +16,9 @@ mixin type(title, mods)
         allMods = allMods + ' type--' + modsList[i].trim();
       }
     }
-  button.type(class= allMods)&attributes(attributes)
+  button.type(class= allMods, data-name=title)&attributes(attributes)
     .type__group
       svg.type__icon
           use(href= src.icon + 'icon__' + title)
       .type__title!= title
-    .type__num 999
+    .type__num &nbsp;

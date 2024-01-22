@@ -49,7 +49,8 @@ let config = {
     // "src/scss/vendor.scss",
     "src/scss/fonts.scss",
     "src/scss/animations.scss",
-    "src/blocks/loader/loader.scss"
+    "src/blocks/loader/loader.scss",
+    "src/blocks/card/card.scss"
     // "somePackage/dist/somePackage.css", // для "node_modules/somePackage/dist/somePackage.css",
   ],
   "addStyleAfter": [],
@@ -58,6 +59,7 @@ let config = {
   ],
   "addJsAfter": [
     "./script.js",
+    "./common/init.js"
   ],
   "addAdditions": addAdditions,
   "dir": {

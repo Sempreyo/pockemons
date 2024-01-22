@@ -29,8 +29,6 @@ block content
                   +type(type)(class=index===0 ? 'type--active' : '')
           .cards
             .cards__grid
-              each card in cards.cardsArray
-                +card(card.id, card.img, card.title, card.icons, card)
             .cards__pagination-wrapper
               .cards__pagination-inner
                 +pagination()
