@@ -17,11 +17,7 @@ mixin pagination(mods)
     }
 
   .pagination(class= allMods)&attributes(attributes)
-    button.pagination__link.pagination__link--first first
-    button.pagination__link.pagination__link--active 1
-    button.pagination__link 2
-    button.pagination__link 3
-    button.pagination__link 4
-    button.pagination__link 5
-    span.pagination__filler ...
+    button.pagination__link.pagination__link--first(hidden) first
+    span.pagination__filler(hidden) ...
+    span.pagination__filler(hidden) ...
     button.pagination__link.pagination__link--last last
