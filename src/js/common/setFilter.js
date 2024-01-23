@@ -5,7 +5,8 @@ import renderCards from "./renderCards";
 import getPaginationState from "./getPaginationState";
 import showLoader from "./showLoader";
 import hideLoader from "./hideLoader";
-import { ELEMENTS_PER_PAGE, INITIAL_PAGE, PAGINATION_LENGTH } from "./vars";
+import { INITIAL_PAGE, PAGINATION_LENGTH } from "./vars";
+import getElementsPerPage from "./getElementsPerPage";
 
 async function setFilter(container) {
   const typeNum = document.querySelectorAll(".type__num");
@@ -38,11 +39,10 @@ async function setFilter(container) {
       const target = e.currentTarget;
 
       showLoader(loader, async () => {
-        let filteredList = await pb
-          .collection("pockemon")
-          .getList(INITIAL_PAGE, ELEMENTS_PER_PAGE, {
-            filter: `type~"${target.dataset.name !== "All" ? target.dataset.name : ""}"`,
-          });
+        const perPage = getElementsPerPage();
+        let filteredList = await pb.collection("pockemon").getList(INITIAL_PAGE, perPage, {
+          filter: `type~"${target.dataset.name !== "All" ? target.dataset.name : ""}"`,
+        });
         /* Инициализируем начальное состояние */
         const initValues = ["1", "2", "3", "4", "5"];
         getPaginationState(1, filteredList.totalPages, PAGINATION_LENGTH);

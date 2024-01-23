@@ -4,7 +4,8 @@ import renderCards from "./renderCards";
 import setActive from "./setActive";
 import showLoader from "./showLoader";
 import hideLoader from "./hideLoader";
-import { ELEMENTS_PER_PAGE, PAGINATION_LENGTH } from "./vars";
+import { PAGINATION_LENGTH } from "./vars";
+import getElementsPerPage from "./getElementsPerPage";
 
 async function renderPagination(cardsData) {
   const container = document.querySelector(".cards__grid");
@@ -35,7 +36,8 @@ async function renderPagination(cardsData) {
   /* Клик на кнопку "First" */
   paginationFirst.addEventListener("click", () => {
     showLoader(loader, async () => {
-      const data = await pb.collection("pockemon").getList(1, ELEMENTS_PER_PAGE, {
+      const perPage = getElementsPerPage();
+      const data = await pb.collection("pockemon").getList(1, perPage, {
         filter: `type~"${
           document.querySelector(".type--active").dataset.name !== "All"
             ? document.querySelector(".type--active").dataset.name
@@ -71,15 +73,14 @@ async function renderPagination(cardsData) {
   /* Клик на кнопку "Last" */
   paginationLast.addEventListener("click", () => {
     showLoader(loader, async () => {
-      const data = await pb
-        .collection("pockemon")
-        .getList(cardsData.totalPages, ELEMENTS_PER_PAGE, {
-          filter: `type~"${
-            document.querySelector(".type--active").dataset.name !== "All"
-              ? document.querySelector(".type--active").dataset.name
-              : ""
-          }"`,
-        });
+      const perPage = getElementsPerPage();
+      const data = await pb.collection("pockemon").getList(cardsData.totalPages, perPage, {
+        filter: `type~"${
+          document.querySelector(".type--active").dataset.name !== "All"
+            ? document.querySelector(".type--active").dataset.name
+            : ""
+        }"`,
+      });
 
       const values = getPaginationState(data.totalPages, data.totalPages, PAGINATION_LENGTH);
 
@@ -112,7 +113,8 @@ async function renderPagination(cardsData) {
       /* Показываем сначала лоадер, потом отрисованный блок */
       showLoader(loader, async () => {
         const curPage = e.target.textContent;
-        const data = await pb.collection("pockemon").getList(curPage, ELEMENTS_PER_PAGE, {
+        const perPage = getElementsPerPage();
+        const data = await pb.collection("pockemon").getList(curPage, perPage, {
           filter: `type~"${
             document.querySelector(".type--active").dataset.name !== "All"
               ? document.querySelector(".type--active").dataset.name
