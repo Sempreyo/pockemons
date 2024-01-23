@@ -7,6 +7,7 @@ import showLoader from "./showLoader";
 import hideLoader from "./hideLoader";
 import { INITIAL_PAGE, PAGINATION_LENGTH } from "./vars";
 import getElementsPerPage from "./getElementsPerPage";
+import setUrlParams from "./setUrlParams";
 
 async function setFilter(container) {
   const typeNum = document.querySelectorAll(".type__num");
@@ -44,11 +45,22 @@ async function setFilter(container) {
           filter: `type~"${target.dataset.name !== "All" ? target.dataset.name : ""}"`,
         });
         /* Инициализируем начальное состояние */
-        const initValues = ["1", "2", "3", "4", "5"];
+        const initValues = getPaginationState(1, filteredList.totalPages, PAGINATION_LENGTH);
         getPaginationState(1, filteredList.totalPages, PAGINATION_LENGTH);
 
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+
         paginationNum.forEach((item, index) => {
-          item.innerHTML = initValues[index];
+          if (index <= initValues[index]) {
+            item.removeAttribute("hidden");
+            item.innerHTML = initValues[index];
+          } else {
+            item.setAttribute("hidden", true);
+          }
 
           if (index === 0) {
             setActive(item, "pagination__link--active");
@@ -71,25 +83,18 @@ async function setFilter(container) {
           lastFiller.removeAttribute("hidden");
         }
 
-        /* Для предотвращения скачка при перерисовке задаем фиксированную высоту контейнеру */
-        container.style.height = `${container.offsetHeight}px`;
-
         container.innerHTML = "";
-        setActive(e.target, "type--active");
-        renderCards(filteredList.items);
+        setActive(target, "type--active");
+        setTimeout(() => {
+          renderCards(filteredList.items);
+        }, 1400);
         renderPagination(filteredList);
+
+        /* Задаем параметры в урле */
+        setUrlParams();
       });
 
-      hideLoader(loader, () => {
-        /* Убираем фиксированную высоту контейнера */
-        container.style.height = "auto";
-
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-      });
+      hideLoader(loader);
     });
   }
 }

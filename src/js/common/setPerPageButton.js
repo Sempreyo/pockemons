@@ -6,6 +6,7 @@ import { PAGINATION_LENGTH } from "./vars";
 import renderCards from "./renderCards";
 import hideLoader from "./hideLoader";
 import PocketBase from "pocketbase";
+import setUrlParams from "./setUrlParams";
 
 function setPerPageButton() {
   const container = document.querySelector(".cards__grid");
@@ -22,16 +23,7 @@ function setPerPageButton() {
   );
 
   const hideCardsLoader = () => {
-    hideLoader(loader, () => {
-      /* Убираем фиксированную высоту контейнера */
-      container.style.height = "auto";
-
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    });
+    hideLoader(loader);
   };
 
   perPageButtons.forEach((button) => {
@@ -50,8 +42,19 @@ function setPerPageButton() {
         });
         const values = getPaginationState(1, data.totalPages, PAGINATION_LENGTH);
 
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+
         paginationNum.forEach((item, index) => {
-          item.innerHTML = values[index];
+          if (index <= values[index]) {
+            item.removeAttribute("hidden");
+            item.innerHTML = values[index];
+          } else {
+            item.setAttribute("hidden", true);
+          }
         });
 
         if (startFiller.nextElementSibling.textContent == 1) {
@@ -76,11 +79,13 @@ function setPerPageButton() {
           }
         });
 
-        /* Для предотвращения скачка при перерисовке задаем фиксированную высоту контейнеру */
-        container.style.height = `${container.offsetHeight}px`;
-
         container.innerHTML = "";
-        renderCards(data.items);
+        setTimeout(() => {
+          renderCards(data.items);
+        }, 1400);
+
+        /* Задаем параметры в урле */
+        setUrlParams();
       });
 
       hideCardsLoader();

@@ -6,6 +6,7 @@ import showLoader from "./showLoader";
 import hideLoader from "./hideLoader";
 import { PAGINATION_LENGTH } from "./vars";
 import getElementsPerPage from "./getElementsPerPage";
+import setUrlParams from "./setUrlParams";
 
 async function renderPagination(cardsData) {
   const container = document.querySelector(".cards__grid");
@@ -21,16 +22,7 @@ async function renderPagination(cardsData) {
   const loader = document.querySelector(".cards__loader");
 
   const hideCardsLoader = () => {
-    hideLoader(loader, () => {
-      /* Убираем фиксированную высоту контейнера */
-      container.style.height = "auto";
-
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    });
+    hideLoader(loader);
   };
 
   /* Клик на кнопку "First" */
@@ -46,8 +38,19 @@ async function renderPagination(cardsData) {
       });
       const values = getPaginationState(1, data.totalPages, PAGINATION_LENGTH);
 
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+
       paginationNum.forEach((item, index) => {
-        item.innerHTML = values[index];
+        if (index <= values[index]) {
+          item.removeAttribute("hidden");
+          item.innerHTML = values[index];
+        } else {
+          item.setAttribute("hidden", true);
+        }
 
         if (index === 0) {
           setActive(item, "pagination__link--active");
@@ -60,11 +63,13 @@ async function renderPagination(cardsData) {
       paginationLast.removeAttribute("hidden");
       lastFiller.removeAttribute("hidden");
 
-      /* Для предотвращения скачка при перерисовке задаем фиксированную высоту контейнеру */
-      container.style.height = `${container.offsetHeight}px`;
-
       container.innerHTML = "";
-      renderCards(data.items);
+      setTimeout(() => {
+        renderCards(data.items);
+      }, 1400);
+
+      /* Задаем параметры в урле */
+      setUrlParams();
     });
 
     hideCardsLoader();
@@ -84,10 +89,21 @@ async function renderPagination(cardsData) {
 
       const values = getPaginationState(data.totalPages, data.totalPages, PAGINATION_LENGTH);
 
-      paginationNum.forEach((item, index) => {
-        item.innerHTML = values[index];
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
 
-        if (index === paginationNum.length - 1) {
+      paginationNum.forEach((item, index) => {
+        if (index <= values[index]) {
+          item.removeAttribute("hidden");
+          item.innerHTML = values[index];
+        } else {
+          item.setAttribute("hidden", true);
+        }
+
+        if (index === values.length - 1) {
           setActive(item, "pagination__link--active");
         }
       });
@@ -98,11 +114,13 @@ async function renderPagination(cardsData) {
       paginationFirst.removeAttribute("hidden");
       startFiller.removeAttribute("hidden");
 
-      /* Для предотвращения скачка при перерисовке задаем фиксированную высоту контейнеру */
-      container.style.height = `${container.offsetHeight}px`;
-
       container.innerHTML = "";
-      renderCards(data.items);
+      setTimeout(() => {
+        renderCards(data.items);
+      }, 1400);
+
+      /* Задаем параметры в урле */
+      setUrlParams();
     });
 
     hideCardsLoader();
@@ -123,8 +141,19 @@ async function renderPagination(cardsData) {
         });
         const values = getPaginationState(curPage, data.totalPages, PAGINATION_LENGTH);
 
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+
         paginationNum.forEach((item, index) => {
-          item.innerHTML = values[index];
+          if (index <= values[index]) {
+            item.removeAttribute("hidden");
+            item.innerHTML = values[index];
+          } else {
+            item.setAttribute("hidden", true);
+          }
         });
 
         if (startFiller.nextElementSibling.textContent == 1) {
@@ -149,11 +178,13 @@ async function renderPagination(cardsData) {
           }
         });
 
-        /* Для предотвращения скачка при перерисовке задаем фиксированную высоту контейнеру */
-        container.style.height = `${container.offsetHeight}px`;
-
         container.innerHTML = "";
-        renderCards(data.items);
+        setTimeout(() => {
+          renderCards(data.items);
+        }, 1400);
+
+        /* Задаем параметры в урле */
+        setUrlParams();
       });
 
       hideCardsLoader();
