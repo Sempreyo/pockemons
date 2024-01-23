@@ -19,4 +19,15 @@
       display: none;
     }
   }
+
+  &__loader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-loader);
+    min-height: 200px;
+
+    @media (min-width: $screen-ti) {
+      min-height: 480px;
+    }
+  }
 }

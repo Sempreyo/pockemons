@@ -3,6 +3,11 @@ import PocketBase from "pocketbase";
 import renderPagination from "./renderPagination";
 import renderCards from "./renderCards";
 import getPaginationState from "./getPaginationState";
+import showLoader from "./showLoader";
+import hideLoader from "./hideLoader";
+import { INITIAL_PAGE, PAGINATION_LENGTH } from "./vars";
+import getElementsPerPage from "./getElementsPerPage";
+import setUrlParams from "./setUrlParams";
 
 async function setFilter(container) {
   const typeNum = document.querySelectorAll(".type__num");
@@ -17,9 +22,7 @@ async function setFilter(container) {
   const paginationNum = pagination.querySelectorAll(
     ".pagination__link:not(.pagination__link--first):not(.pagination__link--last):not(.pagination__filler--first):not(.pagination__filler--last)",
   );
-  const INITIAL_PAGE = 1;
-  const ELEMENTS_PER_PAGE = 6;
-  const PAGINATION_LENGTH = 5;
+  const loader = document.querySelector(".cards__loader");
 
   /* Количество покемонов каждого типа */
   for (const num of typeNum) {
@@ -33,44 +36,65 @@ async function setFilter(container) {
       }
     });
 
-    num.parentElement.addEventListener("click", async (e) => {
-      let filteredList = await pb.collection("pockemon").getList(INITIAL_PAGE, ELEMENTS_PER_PAGE, {
-        filter: `type~"${
-          e.currentTarget.dataset.name !== "All" ? e.currentTarget.dataset.name : ""
-        }"`,
-      });
-      /* Инициализируем начальное состояние */
-      const initValues = ["1", "2", "3", "4", "5"];
-      getPaginationState(1, filteredList.totalPages, PAGINATION_LENGTH);
+    num.parentElement.addEventListener("click", (e) => {
+      const target = e.currentTarget;
 
-      paginationNum.forEach((item, index) => {
-        item.innerHTML = initValues[index];
+      showLoader(loader, async () => {
+        const perPage = getElementsPerPage();
+        let filteredList = await pb.collection("pockemon").getList(INITIAL_PAGE, perPage, {
+          filter: `type~"${target.dataset.name !== "All" ? target.dataset.name : ""}"`,
+        });
+        /* Инициализируем начальное состояние */
+        const initValues = getPaginationState(1, filteredList.totalPages, PAGINATION_LENGTH);
+        getPaginationState(1, filteredList.totalPages, PAGINATION_LENGTH);
 
-        if (index === 0) {
-          setActive(item, "pagination__link--active");
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+
+        paginationNum.forEach((item, index) => {
+          if (index <= initValues[index]) {
+            item.removeAttribute("hidden");
+            item.innerHTML = initValues[index];
+          } else {
+            item.setAttribute("hidden", true);
+          }
+
+          if (index === 0) {
+            setActive(item, "pagination__link--active");
+          }
+        });
+
+        if (startFiller.nextElementSibling.textContent == 1) {
+          paginationFirst.setAttribute("hidden", true);
+          startFiller.setAttribute("hidden", true);
+        } else {
+          paginationFirst.removeAttribute("hidden");
+          startFiller.removeAttribute("hidden");
         }
+
+        if (lastFiller.previousElementSibling.textContent == filteredList.totalPages) {
+          paginationLast.setAttribute("hidden", true);
+          lastFiller.setAttribute("hidden", true);
+        } else {
+          paginationLast.removeAttribute("hidden");
+          lastFiller.removeAttribute("hidden");
+        }
+
+        container.innerHTML = "";
+        setActive(target, "type--active");
+        setTimeout(() => {
+          renderCards(filteredList.items);
+        }, 1400);
+        renderPagination(filteredList);
+
+        /* Задаем параметры в урле */
+        setUrlParams();
       });
 
-      if (startFiller.nextElementSibling.textContent == 1) {
-        paginationFirst.setAttribute("hidden", true);
-        startFiller.setAttribute("hidden", true);
-      } else {
-        paginationFirst.removeAttribute("hidden");
-        startFiller.removeAttribute("hidden");
-      }
-
-      if (lastFiller.previousElementSibling.textContent == filteredList.totalPages) {
-        paginationLast.setAttribute("hidden", true);
-        lastFiller.setAttribute("hidden", true);
-      } else {
-        paginationLast.removeAttribute("hidden");
-        lastFiller.removeAttribute("hidden");
-      }
-
-      container.innerHTML = "";
-      setActive(e.target, "type--active");
-      renderCards(filteredList.items);
-      renderPagination(filteredList);
+      hideLoader(loader);
     });
   }
 }

@@ -1,6 +1,7 @@
 @import "../../scss/breakpoints";
 
 .cards {
+  position: relative;
   grid-column: 1 / span 4;
 
   @media (min-width: $screen-ti) {
@@ -47,6 +48,17 @@
 
     @media (min-width: $screen-d) {
       grid-column: 2 / span 4;
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-loader);
+    min-height: 200px;
+
+    @media (min-width: $screen-ti) {
+      min-height: 480px;
     }
   }
 }

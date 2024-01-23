@@ -5,12 +5,19 @@
   align-items: center;
   justify-content: center;
   background-color: var(--body-bg);
-  border: 2px dashed var(--border-box);
-  border-radius: 24px;
+  border-radius: 16px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
 
-  &--no-border {
-    border: 0;
-    border-radius: 16px;
+  &--border {
+    border: 2px dashed var(--border-box);
+    border-radius: 8px;
+  }
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
   &__icon {
