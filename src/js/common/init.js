@@ -3,11 +3,10 @@ import PocketBase from "pocketbase";
 import renderCards from "./renderCards";
 import setFilter from "./setFilter";
 import renderPagination from "./renderPagination";
+import { ELEMENTS_PER_PAGE, INITIAL_PAGE } from "./vars";
 
 ready(function () {
   const container = document.querySelector(".cards__grid");
-  const INITIAL_PAGE = 1;
-  const ELEMENTS_PER_PAGE = 6;
   const pb = new PocketBase("http://127.0.0.1:8090");
 
   const getData = async (initPage, elementsPerPage) => {

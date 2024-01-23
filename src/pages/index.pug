@@ -26,15 +26,20 @@ block content
             ul.filter
               each type, index in types.typesArray
                 li.filter__item
-                  +type(type)(class=index===0 ? 'type--active' : '')
+                  +type(type)(class=index===0 ? 'type--active': '')
           .cards
+            .cards__loader.loader.loader--border.loader--hidden
+              .loader__icon
+                span.loader__part-1
+                span.loader__part-2
+                span.loader__part-3
             .cards__grid
             .cards__pagination-wrapper
               .cards__pagination-inner
                 +pagination()
         .tabs__pane#tab2
           .panel
-            .panel__loader.loader
+            .panel__loader.loader.loader--border
               .loader__icon
                 span.loader__part-1
                 span.loader__part-2
@@ -44,7 +49,7 @@ block content
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader.loader--no-border
+                    .combobox__loader.loader
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
@@ -61,43 +66,7 @@ block content
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader.loader--no-border
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  .fight-tile__filler Type name <br> of champion above
-            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
-          .panel
-            .panel__columns
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader.loader--no-border
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
-              .panel__middle vs
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader.loader--no-border
+                    .combobox__loader.loader
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
@@ -116,7 +85,7 @@ block content
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader.loader--no-border
+                    .combobox__loader.loader
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
@@ -133,7 +102,43 @@ block content
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader.loader--no-border
+                    .combobox__loader.loader
+                      .loader__icon
+                        span.loader__part-1
+                        span.loader__part-2
+                        span.loader__part-3
+                    input.combobox__input(type='text', placeholder='Choose fighter')
+                  ul.combobox__dropdown
+                    each item, index in cards.cardsArray
+                      li.combobox__option
+                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
+                        span.combobox__title #{item.id} #{item.title}
+                .fight-tile
+                  .fight-tile__filler Type name <br> of champion above
+            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
+          .panel
+            .panel__columns
+              .panel__column
+                .combobox
+                  .combobox__field
+                    .combobox__loader.loader
+                      .loader__icon
+                        span.loader__part-1
+                        span.loader__part-2
+                        span.loader__part-3
+                    input.combobox__input(type='text', placeholder='Choose fighter')
+                  ul.combobox__dropdown
+                    each item, index in cards.cardsArray
+                      li.combobox__option
+                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
+                        span.combobox__title #{item.id} #{item.title}
+                .fight-tile
+                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
+              .panel__middle vs
+              .panel__column
+                .combobox
+                  .combobox__field
+                    .combobox__loader.loader
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
@@ -152,7 +157,7 @@ block content
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader.loader--no-border
+                    .combobox__loader.loader
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
@@ -169,7 +174,7 @@ block content
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader.loader--no-border
+                    .combobox__loader.loader
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
