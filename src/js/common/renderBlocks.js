@@ -32,6 +32,7 @@ export default async function renderBlocks(
         ? document.querySelector(".type--active").dataset.name
         : ""
     }"`,
+    sort: "+id",
   });
   const values = getPaginationState(curPage, data.totalPages, PAGINATION_LENGTH);
 
