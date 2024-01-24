@@ -13,6 +13,11 @@ block content
         .tabs__labels
           button.tabs__label.tabs__label--active(data-href='#tab1') Pockemons
           button.tabs__label(data-href='#tab2') Fight
+      .tabs__loader.loader.loader--border.loader--hidden
+        .loader__icon
+          span.loader__part-1
+          span.loader__part-2
+          span.loader__part-3
       .tabs__panes
         .tabs__pane.tabs__pane--active#tab1
           .tabs__overlay
@@ -39,154 +44,35 @@ block content
                 +pagination()
         .tabs__pane#tab2
           .panel
-            .panel__loader.loader.loader--border
-              .loader__icon
-                span.loader__part-1
-                span.loader__part-2
-                span.loader__part-3
-          .panel
             .panel__columns
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader
+                    img.combobox__sprite(src='', alt='', hidden)
+                    input.combobox__input(type='text', placeholder='Choose fighter')
+                  .combobox__dropdown(hidden)
+                    .combobox__loader.loader.loader--hidden
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
                         span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
                 .fight-tile
-                  .fight-tile__filler Type name <br> of champion above
+                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
               .panel__middle vs
               .panel__column
                 .combobox
                   .combobox__field
-                    .combobox__loader.loader
+                    img.combobox__sprite(src='', alt='', hidden)
+                    input.combobox__input(type='text', placeholder='Choose fighter')
+                  .combobox__dropdown(hidden)
+                    .combobox__loader.loader.loader--hidden
                       .loader__icon
                         span.loader__part-1
                         span.loader__part-2
                         span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
                 .fight-tile
                   .fight-tile__filler Type name <br> of champion above
             +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
-          .panel
-            .panel__columns
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
-              .panel__middle vs
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  .fight-tile__filler Type name <br> of champion above
-            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
-          .panel
-            .panel__columns
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
-              .panel__middle vs
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  +card-horyzontal(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3])
-            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button')
-          .panel
-            .panel__columns
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
-              .panel__middle vs
-              .panel__column
-                .combobox
-                  .combobox__field
-                    .combobox__loader.loader
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  ul.combobox__dropdown
-                    each item, index in cards.cardsArray
-                      li.combobox__option
-                        img.combobox__image(src= src.img + 'dropdown-' + (index + 1) + '.png', alt=item.title)
-                        span.combobox__title #{item.id} #{item.title}
-                .fight-tile
-                  +card-horyzontal(cards.cardsArray[3].id, cards.cardsArray[3].img, cards.cardsArray[3].title, cards.cardsArray[3].icons, cards.cardsArray[3])
-            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button')
-            .panel__result.result.result--red Charmander is the winner!
-          .panel__round.result.result--yellow Round draw!
+            //+button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button')
+            //.panel__result.result.result--red Charmander is the winner!
+          //.panel__round.result.result--yellow Round draw!
