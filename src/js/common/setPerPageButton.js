@@ -2,7 +2,7 @@ import setActive from "./setActive";
 import showLoader from "./showLoader";
 import hideLoader from "./hideLoader";
 import renderBlocks from "./renderBlocks";
-import toggleState from "./toggleState";
+import closeMobileMenu from "./closeMobileMenu";
 
 export default function setPerPageButton() {
   const perPageButtons = document.querySelectorAll(".per-page__button");
@@ -16,8 +16,7 @@ export default function setPerPageButton() {
     button.addEventListener("click", () => {
       setActive(button, "per-page__button--active");
 
-      /* На мобилках закрываем меню */
-      toggleState(document.body, "filter-menu");
+      closeMobileMenu();
 
       /* Показываем сначала лоадер, потом отрисованный блок */
       showLoader(loader, async () => {
