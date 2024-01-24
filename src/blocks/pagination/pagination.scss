@@ -28,6 +28,14 @@
     &--last {
       @extend %button-pagination;
     }
+
+    &--first {
+      margin-right: auto;
+    }
+
+    &--last {
+      margin-left: auto;
+    }
   }
 
   &__filler {

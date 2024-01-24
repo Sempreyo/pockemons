@@ -3,6 +3,7 @@ import PocketBase from "pocketbase";
 import showLoader from "./showLoader";
 import hideLoader from "./hideLoader";
 import renderBlocks from "./renderBlocks";
+import toggleState from "./toggleState";
 
 export default async function setFilter() {
   const typeNum = document.querySelectorAll(".type__num");
@@ -25,6 +26,9 @@ export default async function setFilter() {
 
     num.parentElement.addEventListener("click", (e) => {
       setActive(e.currentTarget, "type--active");
+
+      /* На мобилках закрываем меню */
+      toggleState(document.body, "filter-menu");
 
       showLoader(loader, async () => {
         await renderBlocks("", true);
