@@ -5,7 +5,7 @@ import renderPagination from "./renderPagination";
 import getPaginationState from "./getPaginationState";
 import { PAGINATION_LENGTH } from "./vars";
 
-async function setInitialState(pb) {
+export default async function setInitialState(pb) {
   const pages = document.querySelectorAll(".pagination__link");
   const perPages = document.querySelectorAll(".per-page__button");
   const typeValues = document.querySelectorAll(".type");
@@ -46,32 +46,30 @@ async function setInitialState(pb) {
   setTimeout(() => {
     renderCards(initialState.items);
   }, 1400);
-  renderPagination(initialState);
+  await renderPagination(initialState);
 
   paginationNum.forEach((item, index) => {
     if (index <= values[index]) {
       item.removeAttribute("hidden");
       item.innerHTML = values[index];
     } else {
-      item.setAttribute("hidden", true);
+      item.setAttribute("hidden", "true");
     }
   });
 
-  if (startFiller.nextElementSibling.textContent == 1) {
-    paginationFirst.setAttribute("hidden", true);
-    startFiller.setAttribute("hidden", true);
+  if (+startFiller.nextElementSibling.textContent === 1) {
+    paginationFirst.setAttribute("hidden", "true");
+    startFiller.setAttribute("hidden", "true");
   } else {
     paginationFirst.removeAttribute("hidden");
     startFiller.removeAttribute("hidden");
   }
 
-  if (lastFiller.previousElementSibling.textContent == initialState.totalPages) {
-    paginationLast.setAttribute("hidden", true);
-    lastFiller.setAttribute("hidden", true);
+  if (+lastFiller.previousElementSibling.textContent === initialState.totalPages) {
+    paginationLast.setAttribute("hidden", "true");
+    lastFiller.setAttribute("hidden", "true");
   } else {
     paginationLast.removeAttribute("hidden");
     lastFiller.removeAttribute("hidden");
   }
 }
-
-export default setInitialState;

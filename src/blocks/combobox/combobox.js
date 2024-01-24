@@ -52,7 +52,7 @@ ready(function () {
                 sprite.removeAttribute("hidden");
                 sprite.setAttribute("src", spriteSrc);
                 sprite.setAttribute("alt", spriteAlt);
-                dropdown.setAttribute("hidden", true);
+                dropdown.setAttribute("hidden", "true");
               });
             });
           });
@@ -66,7 +66,7 @@ ready(function () {
       const target = e.composedPath().includes(item);
 
       if (!target) {
-        dropdown.setAttribute("hidden", true);
+        dropdown.setAttribute("hidden", "true");
       }
     });
   });
