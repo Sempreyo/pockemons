@@ -1,4 +1,4 @@
-function showLoader(element, fn) {
+export default function showLoader(element, fn) {
   element.classList.remove("loader--hidden");
 
   if (fn) {
@@ -7,5 +7,3 @@ function showLoader(element, fn) {
     }, 300);
   }
 }
-
-export default showLoader;

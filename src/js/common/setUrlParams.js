@@ -1,4 +1,4 @@
-function setUrlParams() {
+export default function setUrlParams() {
   let url = new URL(window.location.href);
   const pageValue = document.querySelector(".pagination__link--active").textContent;
   const perPageValue = document.querySelector(".per-page__button--active").textContent;
@@ -16,5 +16,3 @@ function setUrlParams() {
     `?page=${pageValue}&per_page=${perPageValue}&type=${typeValue}`;
   window.history.pushState({ path: newurl }, "", newurl);
 }
-
-export default setUrlParams;

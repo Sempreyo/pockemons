@@ -1,4 +1,4 @@
-function getUrlParams(page, perPage, type) {
+export default function getUrlParams(page, perPage, type) {
   let url = new URL(window.location.href);
 
   if (page && url.searchParams.get("page")) {
@@ -13,5 +13,3 @@ function getUrlParams(page, perPage, type) {
     return url.searchParams.get("type");
   }
 }
-
-export default getUrlParams;

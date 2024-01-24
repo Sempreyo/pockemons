@@ -11,8 +11,8 @@ ready(function () {
 
   const init = async () => {
     setPerPageButton();
-    setInitialState(pb);
-    setFilter(container);
+    await setInitialState(pb);
+    await setFilter(container);
     getElementsPerPage();
   };
 

@@ -1,4 +1,4 @@
-function getPaginationState(current, total, length) {
+export default function getPaginationState(current, total, length) {
   let start = Math.min(current - Math.floor(length / 2), total + 1 - length);
   let values = [];
 
@@ -12,5 +12,3 @@ function getPaginationState(current, total, length) {
 
   return values;
 }
-
-export default getPaginationState;

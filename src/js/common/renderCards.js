@@ -1,4 +1,4 @@
-function renderCards(cards) {
+export default function renderCards(cards) {
   const container = document.querySelector(".cards__grid");
 
   cards.forEach((item) => {
@@ -67,5 +67,3 @@ function renderCards(cards) {
     container.insertAdjacentHTML("beforeend", card);
   });
 }
-
-export default renderCards;
