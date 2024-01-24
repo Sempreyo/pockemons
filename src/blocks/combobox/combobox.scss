@@ -1,8 +1,20 @@
 @import "../../scss/breakpoints";
-@import "../../scss/mixins/list-reset";
 
 .combobox {
   position: relative;
+
+  &__field {
+    position: relative;
+  }
+
+  &__sprite {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    transform: translateY(-50%);
+  }
 
   &__input {
     width: 100%;
@@ -31,15 +43,15 @@
   }
 
   &__dropdown {
-    @include list-reset;
-
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
     left: 0;
     z-index: 1;
-    display: none;
+    min-height: 56px;
+    max-height: 300px;
     padding: 8px;
+    overflow-y: auto;
     background-color: var(--back-primary);
     border-radius: 16px;
   }
@@ -47,6 +59,7 @@
   &__option {
     padding: 0 8px;
     border-radius: 8px;
+    cursor: pointer;
     transition: 0.3s ease;
 
     &:hover {
@@ -63,6 +76,5 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    display: none;
   }
 }

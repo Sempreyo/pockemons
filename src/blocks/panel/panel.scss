@@ -19,12 +19,6 @@
     grid-column: 1 / span 4;
   }
 
-  &__loader {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
-
   &__columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
