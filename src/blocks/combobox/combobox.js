@@ -13,19 +13,29 @@ ready(function () {
     const sprite = item.querySelector(".combobox__sprite");
     const loader = item.querySelector(".combobox__loader");
 
-    input.addEventListener("focus", () => {
-      dropdown.removeAttribute("hidden");
+    input.addEventListener("focus", (e) => {
+      e.target.value = "";
+      sprite.setAttribute("hidden", "true");
     });
 
-    input.addEventListener("input", (e) => {
+    input.addEventListener("input", async (e) => {
       const target = e.currentTarget;
 
-      showLoader(loader, async () => {
-        let filteredData = await pb.collection("pockemon").getFullList({
-          filter: `name.english~"${target.value.length > 3 ? target.value : ""}"`,
-        });
+      let filteredData = await pb.collection("pockemon").getFullList({
+        filter: `name.english~"${target.value.length > 2 ? target.value : ""}"`,
+      });
 
-        if (target.value.length > 3 || target.value.length === 0) {
+      if (filteredData.length === 0) {
+        dropdown.setAttribute("hidden", "true");
+      }
+
+      if (target.value.length <= 2) {
+        dropdown.innerHTML = "";
+        dropdown.setAttribute("hidden", "true");
+      }
+
+      if (target.value.length > 2 && filteredData.length > 0) {
+        showLoader(loader, async () => {
           dropdown.innerHTML = "";
 
           filteredData.forEach((data) => {
@@ -36,15 +46,23 @@ ready(function () {
             }" alt="${data.name.english}">
             <span class="combobox__title">${
               id.length < 3 ? id.padStart(3, "0") : id.length < 2 ? id.padStart(3, "0") : id
-            } &mdash; ${data.name.english}</span>
+            } &mdash; ${data.name.english.replace(
+              input.value,
+              `<span style="color: #f2c94c;">${input.value}</span>`,
+            )}</span>
           </div>`;
 
-            dropdown.insertAdjacentHTML("beforeend", dropdownItem);
+            dropdown.removeAttribute("hidden");
 
-            const options = dropdown.querySelectorAll(".combobox__option");
+            dropdown.insertAdjacentHTML("beforeend", dropdownItem);
+          });
+
+          const options = dropdown.querySelectorAll(".combobox__option");
+
+          if (options && options.length > 0) {
             options.forEach((option) => {
               option.addEventListener("click", () => {
-                const value = option.querySelector(".combobox__title").innerHTML;
+                const value = option.querySelector(".combobox__title").innerText;
                 const spriteSrc = option.querySelector(".combobox__image").getAttribute("src");
                 const spriteAlt = option.querySelector(".combobox__image").getAttribute("alt");
 
@@ -55,11 +73,11 @@ ready(function () {
                 dropdown.setAttribute("hidden", "true");
               });
             });
-          });
-        }
-      });
+          }
+        });
 
-      hideLoader(loader);
+        hideLoader(loader);
+      }
     });
 
     document.addEventListener("click", (e) => {
