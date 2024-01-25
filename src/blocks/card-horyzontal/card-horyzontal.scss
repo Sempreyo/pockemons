@@ -52,6 +52,11 @@
 
   &__image {
     width: auto;
+    max-width: 120px;
+
+    @media (min-width: $screen-ti) {
+      max-width: 120px;
+    }
   }
 
   &__group {
