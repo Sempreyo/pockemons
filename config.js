@@ -50,7 +50,9 @@ let config = {
     "src/scss/fonts.scss",
     "src/scss/animations.scss",
     "src/blocks/loader/loader.scss",
-    "src/blocks/card/card.scss"
+    "src/blocks/card/card.scss",
+    "src/blocks/card-horyzontal/card-horyzontal.scss",
+    "src/blocks/characteristic/characteristic.scss"
     // "somePackage/dist/somePackage.css", // для "node_modules/somePackage/dist/somePackage.css",
   ],
   "addStyleAfter": [],

@@ -88,18 +88,4 @@
       margin-top: 48px;
     }
   }
-
-  &__round {
-    grid-column: 1 / span 4;
-    margin: 8px 8px 0;
-
-    @media (min-width: $screen-ti) {
-      grid-column: 1 / span 12;
-      margin: 40px 8px 0;
-    }
-
-    @media (min-width: $screen-d) {
-      grid-column: 1 / span 4;
-    }
-  }
 }

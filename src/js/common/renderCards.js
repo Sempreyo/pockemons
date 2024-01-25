@@ -24,7 +24,7 @@ export default function renderCards(cards) {
     }" alt="${item.name.english}">
               </div>
               <div class="card__group">
-                <h2 class="card__title" title="Bulbasaur">${item.name.english}</h2>
+                <h2 class="card__title" title="${item.name.english}">${item.name.english}</h2>
                 <div class="card__icons">
                   ${types}
                 </div>

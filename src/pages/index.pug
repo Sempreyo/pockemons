@@ -57,7 +57,7 @@ block content
                         span.loader__part-2
                         span.loader__part-3
                 .fight-tile
-                  +card-horyzontal(cards.cardsArray[0].id, cards.cardsArray[0].img, cards.cardsArray[0].title, cards.cardsArray[0].icons, cards.cardsArray[0])
+                  .fight-tile__filler Type name <br> of champion above
               .panel__middle vs
               .panel__column
                 .combobox
@@ -73,6 +73,5 @@ block content
                 .fight-tile
                   .fight-tile__filler Type name <br> of champion above
             +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
-            //+button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button')
-            //.panel__result.result.result--red Charmander is the winner!
-          //.panel__round.result.result--yellow Round draw!
+            .panel__result.result.result--red.js-result(hidden) <span class="panel__winner"></span> &nbsp; is the winner!
+            .panel__result.result.result--yellow.js-draw(hidden) Round draw!
