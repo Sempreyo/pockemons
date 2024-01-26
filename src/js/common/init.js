@@ -4,7 +4,6 @@ import setFilter from "./setFilter";
 import getElementsPerPage from "./getElementsPerPage";
 import setPerPageButton from "./setPerPageButton";
 import setInitialState from "./setInitialState";
-import fight from "./fight";
 
 ready(function () {
   const container = document.querySelector(".cards__grid");
@@ -15,7 +14,6 @@ ready(function () {
     await setInitialState(pb);
     await setFilter(container);
     getElementsPerPage();
-    fight(pb);
   };
 
   init();

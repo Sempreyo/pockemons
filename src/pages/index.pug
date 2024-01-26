@@ -13,11 +13,6 @@ block content
         .tabs__labels
           button.tabs__label.tabs__label--active(data-href='#tab1') Pockemons
           button.tabs__label(data-href='#tab2') Fight
-      .tabs__loader.loader.loader--border.loader--hidden
-        .loader__icon
-          span.loader__part-1
-          span.loader__part-2
-          span.loader__part-3
       .tabs__panes
         .tabs__pane.tabs__pane--active#tab1
           .tabs__overlay
@@ -29,49 +24,9 @@ block content
                 button.per-page__button(data-per-page='24') 24
                 button.per-page__button(data-per-page='48') 48
             ul.filter
-              each type, index in types.typesArray
-                li.filter__item
-                  +type(type)(class=index===0 ? 'type--active': '')
           .cards
-            .cards__loader.loader.loader--border.loader--hidden
-              .loader__icon
-                span.loader__part-1
-                span.loader__part-2
-                span.loader__part-3
             .cards__grid
             .cards__pagination-wrapper
               .cards__pagination-inner
                 +pagination()
         .tabs__pane#tab2
-          .panel
-            .panel__columns
-              .panel__column
-                .combobox
-                  .combobox__field
-                    img.combobox__sprite(src='', alt='', hidden)
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  .combobox__dropdown(hidden)
-                    .combobox__loader.loader.loader--hidden
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                .fight-tile
-                  .fight-tile__filler Type name <br> of champion above
-              .panel__middle vs
-              .panel__column
-                .combobox
-                  .combobox__field
-                    img.combobox__sprite(src='', alt='', hidden)
-                    input.combobox__input(type='text', placeholder='Choose fighter')
-                  .combobox__dropdown(hidden)
-                    .combobox__loader.loader.loader--hidden
-                      .loader__icon
-                        span.loader__part-1
-                        span.loader__part-2
-                        span.loader__part-3
-                .fight-tile
-                  .fight-tile__filler Type name <br> of champion above
-            +button('button', 'FIGHT!', 'primary', 'button-name', 'button-id')(class='panel__button', disabled)
-            .panel__result.result.result--red.js-result(hidden) <span class="panel__winner"></span> &nbsp; is the winner!
-            .panel__result.result.result--yellow.js-draw(hidden) Round draw!

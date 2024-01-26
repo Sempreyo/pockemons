@@ -41,16 +41,74 @@ html(class='no-js', lang='ru')
     noscript У вас отключен JavaScript. Это пугает.
 
     .page
-      .page__loader.loader
-        .loader__icon
-          span.loader__part-1
-          span.loader__part-2
-          span.loader__part-3
       .page__filter-button.filter-button
         svg.filter-button__icon
           use(href= src.icon + 'icon__filter')
       .page__main
         block content
+
+    template#card-template
+      .card
+        .card__top
+          .card__image-wrapper
+            .card__id.skeleton
+            .card__image.skeleton.skeleton-img
+          .card__group
+            h2.card__title.skeleton.skeleton-text
+            .card__icons
+              svg.card__icon.skeleton.skeleton-img
+        .card__bottom
+          .card__characteristics
+            .characteristic
+              .characteristic__icon-wrapper
+                svg.characteristic__icon.skeleton.skeleton-img
+              .characteristic__num
+                span.skeleton.skeleton-text
+            .characteristic
+              .characteristic__icon-wrapper
+                svg.characteristic__icon.skeleton.skeleton-img
+              .characteristic__num
+                span.skeleton.skeleton-text
+            .characteristic
+              .characteristic__icon-wrapper
+                svg.characteristic__icon.skeleton.skeleton-img
+              .characteristic__num
+                span.skeleton.skeleton-text
+                | /
+                span.skeleton.skeleton-text
+            .characteristic
+              .characteristic__icon-wrapper
+                svg.characteristic__icon.skeleton.skeleton-img
+              .characteristic__num
+                span.skeleton.skeleton-text
+                | /
+                span.skeleton.skeleton-text
+
+
+    template#filter-template
+      button.type
+        .type__group
+          svg.type__icon.skeleton.skeleton-img
+          .type__title.skeleton.skeleton-text
+        .type__num.skeleton.skeleton-text
+    template#fight-template
+      .panel
+        .panel__columns
+          .panel__column
+            .combobox
+              .combobox__field.skeleton.skeleton-text
+            .fight-tile
+              .fight-tile__filler.skeleton.skeleton-text
+          .panel__middle.skeleton
+          .panel__column
+            .combobox
+              .combobox__field.skeleton.skeleton-text
+            .fight-tile
+              .fight-tile__filler.skeleton.skeleton-text
+        button.button.button--primary.panel__button#button-id(name='button-name', disabled='disabled')
+          span.button__title.skeleton.skeleton-text
+        .panel__result.result.result--red.js-result.skeleton.skeleton-text(hidden='hidden')
+        .panel__result.result.result--yellow.js-draw.skeleton.skeleton-text(hidden='hidden')
 
     block templates
 

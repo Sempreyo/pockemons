@@ -36,7 +36,6 @@ let config = {
     "no-js",
   ],
   "alwaysAddBlocks": [
-    "loader",
     "card",
     "card-horyzontal",
     "characteristic"
@@ -62,7 +61,6 @@ let config = {
   ],
   "addJsAfter": [
     "./script.js",
-    "./common/pageInit.js",
     "./common/init.js"
   ],
   "addAdditions": addAdditions,

@@ -56,6 +56,8 @@ export default async function renderBlocks(
     lastFiller.setAttribute("hidden", "true");
   };
 
+  container.innerHTML = "";
+
   scrollToTop();
 
   paginationNum.forEach((item, index) => {
@@ -116,10 +118,7 @@ export default async function renderBlocks(
     });
   }
 
-  container.innerHTML = "";
-  setTimeout(() => {
-    renderCards(data.items);
-  }, 1400);
+  renderCards(data.items);
 
   if (isResetPagination) {
     await renderPagination(data);

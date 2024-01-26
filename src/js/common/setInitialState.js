@@ -43,9 +43,7 @@ export default async function setInitialState(pb) {
     }
   });
 
-  setTimeout(() => {
-    renderCards(initialState.items);
-  }, 1400);
+  renderCards(initialState.items);
   await renderPagination(initialState);
 
   paginationNum.forEach((item, index) => {

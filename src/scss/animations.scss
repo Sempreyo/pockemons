@@ -57,3 +57,13 @@
     transform: rotate(180deg) translateX(-10px);
   }
 }
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200deg 20% 70%);
+  }
+
+  100% {
+    background-color: hsl(200deg 20% 95%);
+  }
+}
