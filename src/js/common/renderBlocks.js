@@ -36,6 +36,26 @@ export default async function renderBlocks(
   });
   const values = getPaginationState(curPage, data.totalPages, PAGINATION_LENGTH);
 
+  const showStartNavigation = () => {
+    paginationFirst.removeAttribute("hidden");
+    startFiller.removeAttribute("hidden");
+  };
+
+  const hideStartNavigation = () => {
+    paginationFirst.setAttribute("hidden", "true");
+    startFiller.setAttribute("hidden", "true");
+  };
+
+  const showEndNavigation = () => {
+    paginationLast.removeAttribute("hidden");
+    lastFiller.removeAttribute("hidden");
+  };
+
+  const hideEndNavigation = () => {
+    paginationLast.setAttribute("hidden", "true");
+    lastFiller.setAttribute("hidden", "true");
+  };
+
   scrollToTop();
 
   paginationNum.forEach((item, index) => {
@@ -46,7 +66,12 @@ export default async function renderBlocks(
       item.setAttribute("hidden", "true");
     }
 
-    if (isResetPagination || (isFirstButton && index === 0)) {
+    /* При клике на фильтр с типом переходим на первую страницу */
+    if (isResetPagination && index === 0) {
+      setActive(item, "pagination__link--active");
+    }
+
+    if (isFirstButton && index === 0) {
       setActive(item, "pagination__link--active");
     }
 
@@ -56,33 +81,31 @@ export default async function renderBlocks(
   });
 
   if (+startFiller.nextElementSibling.textContent === 1) {
-    paginationFirst.setAttribute("hidden", "true");
-    startFiller.setAttribute("hidden", "true");
+    hideStartNavigation();
   } else {
-    paginationFirst.removeAttribute("hidden");
-    startFiller.removeAttribute("hidden");
+    showStartNavigation();
   }
 
   if (+lastFiller.previousElementSibling.textContent === data.totalPages) {
-    paginationLast.setAttribute("hidden", "true");
-    lastFiller.setAttribute("hidden", "true");
+    hideEndNavigation();
   } else {
-    paginationLast.removeAttribute("hidden");
-    lastFiller.removeAttribute("hidden");
+    showEndNavigation();
   }
 
   if (isFirstButton) {
-    paginationFirst.setAttribute("hidden", "true");
-    startFiller.setAttribute("hidden", "true");
-    paginationLast.removeAttribute("hidden");
-    lastFiller.removeAttribute("hidden");
+    hideStartNavigation();
+    showEndNavigation();
   }
 
   if (isLastButton) {
-    paginationFirst.removeAttribute("hidden");
-    startFiller.removeAttribute("hidden");
-    paginationLast.setAttribute("hidden", "true");
-    lastFiller.setAttribute("hidden", "true");
+    hideEndNavigation();
+    showStartNavigation();
+  }
+
+  /* Если количество страниц меньше или равно отрезку пагинации скрываем всю навигацию */
+  if (data.totalPages <= PAGINATION_LENGTH) {
+    hideStartNavigation();
+    hideEndNavigation();
   }
 
   if (!isResetPagination && !isFirstButton && !isLastButton) {

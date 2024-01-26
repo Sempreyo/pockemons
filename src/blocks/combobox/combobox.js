@@ -71,6 +71,7 @@ ready(function () {
 
           filteredData.forEach((data) => {
             const id = String(+data.id);
+            const startsWithUpper = input.value.charAt(0).toUpperCase() + input.value.slice(1);
             const dropdownItem = `<div class="combobox__option" data-id="${data.id}">
             <img class="combobox__image" src="http://127.0.0.1:8090/api/files/pockemon/${data.id}/${
               data.sprite
@@ -78,8 +79,10 @@ ready(function () {
             <span class="combobox__title">${
               id.length < 3 ? id.padStart(3, "0") : id.length < 2 ? id.padStart(3, "0") : id
             } &mdash; ${data.name.english.replace(
-              input.value,
-              `<span style="color: #f2c94c;">${input.value}</span>`,
+              `${data.name.english.startsWith(startsWithUpper) ? startsWithUpper : input.value}`,
+              `<span style="color: #f2c94c;">${
+                data.name.english.startsWith(startsWithUpper) ? startsWithUpper : input.value
+              }</span>`,
             )}</span>
           </div>`;
 
